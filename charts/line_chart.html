@@ -123,11 +123,12 @@
                 .classed("svg-content", true);
             if (option == 'cases') {
                 var max = 60
-                var dataset_link = "./DV/data/line_data.csv"
+                var dataset_link = "/DV/data/line_data.csv"
             } else {
                 var max = 100
-                var dataset_link = "./DV/data/line_data_vaccinations.csv"
+                var dataset_link = "/DV/data/line_data_vaccinations.csv"
             }
+            console.log(dataset_link)
             const timeConv = d3.timeParse("%Y-%m-%d");
             var formatDecimal = d3.format(",.4f");
             const dataset = d3.csv(dataset_link);
