@@ -1,0 +1,1750 @@
+month,year,location,stringency_index
+1,2020,Cambodia,0.0
+1,2020,China,69.91
+1,2020,Hong Kong,49.07
+1,2020,India,10.19
+1,2020,Japan,2.78
+1,2020,Macao,36.11
+1,2020,Malaysia,19.44
+1,2020,Nepal,13.89
+1,2020,Philippines,19.44
+1,2020,Singapore,25.0
+1,2020,South Korea,2.78
+1,2020,Sri Lanka,8.33
+1,2020,Taiwan,19.44
+1,2020,Thailand,0.0
+1,2020,United Arab Emirates,2.78
+1,2020,Vietnam,25.93
+1,2021,Afghanistan,12.04
+1,2021,Armenia,
+1,2021,Azerbaijan,89.81
+1,2021,Bahrain,58.33
+1,2021,Bangladesh,81.02
+1,2021,Bhutan,81.94
+1,2021,Brunei,35.19
+1,2021,Cambodia,62.96
+1,2021,China,78.24
+1,2021,Georgia,84.26
+1,2021,Hong Kong,71.3
+1,2021,India,68.98
+1,2021,Indonesia,69.91
+1,2021,Iran,80.09
+1,2021,Iraq,53.7
+1,2021,Israel,87.04
+1,2021,Japan,49.54
+1,2021,Jordan,81.48
+1,2021,Kazakhstan,68.52
+1,2021,Kuwait,71.3
+1,2021,Kyrgyzstan,41.67
+1,2021,Laos,29.63
+1,2021,Lebanon,85.19
+1,2021,Macao,23.15
+1,2021,Malaysia,77.31
+1,2021,Maldives,
+1,2021,Mongolia,75.46
+1,2021,Myanmar,75.93
+1,2021,Nepal,60.19
+1,2021,North Korea,
+1,2021,Northern Cyprus,
+1,2021,Oman,45.37
+1,2021,Pakistan,64.35
+1,2021,Palestine,78.7
+1,2021,Philippines,74.54
+1,2021,Qatar,62.04
+1,2021,Saudi Arabia,56.48
+1,2021,Singapore,50.93
+1,2021,South Korea,67.59
+1,2021,Sri Lanka,81.94
+1,2021,Syria,39.35
+1,2021,Taiwan,25.0
+1,2021,Tajikistan,48.15
+1,2021,Thailand,63.89
+1,2021,Timor,60.19
+1,2021,Turkey,80.09
+1,2021,United Arab Emirates,62.04
+1,2021,Uzbekistan,42.59
+1,2021,Vietnam,67.59
+1,2021,Yemen,27.78
+1,2022,Afghanistan,19.44
+1,2022,Armenia,
+1,2022,Azerbaijan,59.83
+1,2022,Bahrain,37.45
+1,2022,Bangladesh,71.27
+1,2022,Bhutan,78.7
+1,2022,Brunei,54.63
+1,2022,Cambodia,41.36
+1,2022,China,79.17
+1,2022,Georgia,44.44
+1,2022,Hong Kong,65.74
+1,2022,India,78.05
+1,2022,Indonesia,67.81
+1,2022,Iran,62.04
+1,2022,Iraq,68.52
+1,2022,Israel,48.91
+1,2022,Japan,47.22
+1,2022,Jordan,34.26
+1,2022,Kazakhstan,76.85
+1,2022,Kuwait,44.86
+1,2022,Kyrgyzstan,47.22
+1,2022,Laos,70.16
+1,2022,Lebanon,48.74
+1,2022,Macao,32.41
+1,2022,Malaysia,49.04
+1,2022,Maldives,
+1,2022,Mongolia,40.28
+1,2022,Myanmar,80.56
+1,2022,Nepal,57.41
+1,2022,North Korea,
+1,2022,Northern Cyprus,
+1,2022,Oman,55.65
+1,2022,Pakistan,58.47
+1,2022,Palestine,30.56
+1,2022,Philippines,65.73
+1,2022,Qatar,58.02
+1,2022,Saudi Arabia,44.67
+1,2022,Singapore,46.43
+1,2022,South Korea,46.35
+1,2022,Sri Lanka,53.8
+1,2022,Syria,37.96
+1,2022,Taiwan,25.12
+1,2022,Tajikistan,29.63
+1,2022,Thailand,50.93
+1,2022,Timor,43.68
+1,2022,Turkey,35.54
+1,2022,Turkmenistan,
+1,2022,United Arab Emirates,44.57
+1,2022,Uzbekistan,45.37
+1,2022,Vietnam,68.52
+1,2022,Yemen,26.85
+2,2020,Afghanistan,8.33
+2,2020,Armenia,
+2,2020,Bahrain,30.56
+2,2020,Cambodia,0.0
+2,2020,China,81.02
+2,2020,Georgia,19.44
+2,2020,Hong Kong,52.78
+2,2020,India,10.19
+2,2020,Iran,20.37
+2,2020,Iraq,52.78
+2,2020,Israel,19.44
+2,2020,Japan,34.26
+2,2020,Kuwait,13.89
+2,2020,Lebanon,25.0
+2,2020,Macao,46.3
+2,2020,Malaysia,19.44
+2,2020,Nepal,16.67
+2,2020,Oman,19.44
+2,2020,Pakistan,28.7
+2,2020,Philippines,25.0
+2,2020,Qatar,13.89
+2,2020,Singapore,30.56
+2,2020,South Korea,55.56
+2,2020,Sri Lanka,11.11
+2,2020,Taiwan,30.56
+2,2020,Thailand,0.0
+2,2020,United Arab Emirates,8.33
+2,2020,Vietnam,47.22
+2,2021,Afghanistan,12.04
+2,2021,Armenia,
+2,2021,Azerbaijan,72.22
+2,2021,Bahrain,58.33
+2,2021,Bangladesh,81.02
+2,2021,Bhutan,43.06
+2,2021,Brunei,35.19
+2,2021,Cambodia,64.81
+2,2021,China,78.24
+2,2021,Georgia,83.33
+2,2021,Hong Kong,71.3
+2,2021,India,63.43
+2,2021,Indonesia,69.91
+2,2021,Iran,81.94
+2,2021,Iraq,84.26
+2,2021,Israel,87.04
+2,2021,Japan,50.93
+2,2021,Jordan,75.93
+2,2021,Kazakhstan,71.3
+2,2021,Kuwait,77.78
+2,2021,Kyrgyzstan,41.67
+2,2021,Laos,22.22
+2,2021,Lebanon,92.59
+2,2021,Macao,23.15
+2,2021,Malaysia,77.31
+2,2021,Maldives,
+2,2021,Mongolia,73.61
+2,2021,Myanmar,77.31
+2,2021,Nepal,57.41
+2,2021,North Korea,
+2,2021,Northern Cyprus,
+2,2021,Oman,56.48
+2,2021,Pakistan,50.46
+2,2021,Palestine,83.33
+2,2021,Philippines,73.61
+2,2021,Qatar,68.52
+2,2021,Saudi Arabia,57.41
+2,2021,Singapore,50.93
+2,2021,South Korea,63.89
+2,2021,Sri Lanka,79.17
+2,2021,Syria,35.65
+2,2021,Taiwan,25.0
+2,2021,Tajikistan,31.48
+2,2021,Thailand,52.78
+2,2021,Timor,46.3
+2,2021,Turkey,72.22
+2,2021,Turkmenistan,
+2,2021,United Arab Emirates,62.04
+2,2021,Uzbekistan,37.04
+2,2021,Vietnam,76.85
+2,2021,Yemen,25.0
+2,2022,Afghanistan,19.44
+2,2022,Armenia,
+2,2022,Azerbaijan,59.28
+2,2022,Bahrain,37.41
+2,2022,Bangladesh,67.55
+2,2022,Bhutan,75.46
+2,2022,Brunei,50.75
+2,2022,Cambodia,33.37
+2,2022,China,64.35
+2,2022,Georgia,50.0
+2,2022,Hong Kong,71.3
+2,2022,India,75.75
+2,2022,Indonesia,66.39
+2,2022,Iran,62.04
+2,2022,Iraq,64.28
+2,2022,Israel,45.11
+2,2022,Japan,47.22
+2,2022,Jordan,34.26
+2,2022,Kazakhstan,62.04
+2,2022,Kuwait,50.38
+2,2022,Kyrgyzstan,47.22
+2,2022,Laos,70.18
+2,2022,Lebanon,45.9
+2,2022,Macao,52.78
+2,2022,Malaysia,40.04
+2,2022,Maldives,
+2,2022,Mongolia,37.5
+2,2022,Myanmar,78.7
+2,2022,Nepal,54.79
+2,2022,North Korea,
+2,2022,Northern Cyprus,
+2,2022,Oman,35.52
+2,2022,Pakistan,58.15
+2,2022,Palestine,22.22
+2,2022,Philippines,58.65
+2,2022,Qatar,58.02
+2,2022,Saudi Arabia,52.75
+2,2022,Singapore,46.3
+2,2022,South Korea,46.2
+2,2022,Sri Lanka,53.79
+2,2022,Syria,37.96
+2,2022,Taiwan,25.07
+2,2022,Tajikistan,18.52
+2,2022,Thailand,48.61
+2,2022,Timor,43.62
+2,2022,Turkey,36.66
+2,2022,Turkmenistan,
+2,2022,United Arab Emirates,40.8
+2,2022,Uzbekistan,45.37
+2,2022,Vietnam,66.67
+2,2022,Yemen,26.85
+3,2020,Afghanistan,67.59
+3,2020,Armenia,
+3,2020,Azerbaijan,88.89
+3,2020,Bahrain,78.7
+3,2020,Bangladesh,87.04
+3,2020,Bhutan,83.33
+3,2020,Brunei,52.78
+3,2020,Cambodia,65.74
+3,2020,China,81.94
+3,2020,Georgia,100.0
+3,2020,Hong Kong,63.89
+3,2020,India,100.0
+3,2020,Indonesia,50.93
+3,2020,Iran,57.41
+3,2020,Iraq,96.3
+3,2020,Israel,81.48
+3,2020,Japan,43.52
+3,2020,Jordan,100.0
+3,2020,Kazakhstan,92.13
+3,2020,Kuwait,81.48
+3,2020,Kyrgyzstan,92.13
+3,2020,Laos,96.3
+3,2020,Lebanon,85.19
+3,2020,Macao,46.3
+3,2020,Malaysia,78.7
+3,2020,Maldives,
+3,2020,Mongolia,68.06
+3,2020,Myanmar,57.41
+3,2020,Nepal,96.3
+3,2020,Oman,85.19
+3,2020,Pakistan,96.3
+3,2020,Palestine,96.3
+3,2020,Philippines,100.0
+3,2020,Qatar,86.11
+3,2020,Saudi Arabia,89.81
+3,2020,Singapore,36.11
+3,2020,South Korea,75.93
+3,2020,Sri Lanka,100.0
+3,2020,Syria,84.26
+3,2020,Taiwan,31.48
+3,2020,Thailand,68.06
+3,2020,Timor,75.0
+3,2020,Turkey,75.93
+3,2020,United Arab Emirates,84.26
+3,2020,Uzbekistan,90.74
+3,2020,Vietnam,83.33
+3,2021,Afghanistan,30.56
+3,2021,Armenia,
+3,2021,Azerbaijan,70.37
+3,2021,Bahrain,61.11
+3,2021,Bangladesh,83.33
+3,2021,Bhutan,72.22
+3,2021,Brunei,40.74
+3,2021,Cambodia,72.22
+3,2021,China,56.02
+3,2021,Georgia,64.81
+3,2021,Hong Kong,71.3
+3,2021,India,63.43
+3,2021,Indonesia,71.76
+3,2021,Iran,83.33
+3,2021,Iraq,84.26
+3,2021,Israel,57.52
+3,2021,Japan,48.15
+3,2021,Jordan,81.48
+3,2021,Kazakhstan,73.15
+3,2021,Kuwait,81.48
+3,2021,Kyrgyzstan,52.31
+3,2021,Laos,16.67
+3,2021,Lebanon,92.59
+3,2021,Macao,23.15
+3,2021,Malaysia,73.61
+3,2021,Maldives,
+3,2021,Mongolia,71.76
+3,2021,Myanmar,77.78
+3,2021,Nepal,52.78
+3,2021,North Korea,
+3,2021,Northern Cyprus,
+3,2021,Oman,84.26
+3,2021,Pakistan,56.02
+3,2021,Palestine,92.59
+3,2021,Philippines,81.02
+3,2021,Qatar,68.52
+3,2021,Saudi Arabia,57.41
+3,2021,Singapore,50.93
+3,2021,South Korea,58.33
+3,2021,Sri Lanka,79.17
+3,2021,Syria,30.56
+3,2021,Taiwan,25.0
+3,2021,Tajikistan,31.48
+3,2021,Thailand,47.22
+3,2021,Timor,85.19
+3,2021,Turkey,72.22
+3,2021,Turkmenistan,
+3,2021,United Arab Emirates,55.56
+3,2021,Uzbekistan,37.04
+3,2021,Vietnam,64.81
+3,2021,Yemen,34.26
+3,2022,Afghanistan,19.44
+3,2022,Armenia,
+3,2022,Azerbaijan,59.16
+3,2022,Bahrain,29.63
+3,2022,Bangladesh,19.01
+3,2022,Bhutan,73.61
+3,2022,Brunei,53.7
+3,2022,Cambodia,27.33
+3,2022,China,73.61
+3,2022,Georgia,47.22
+3,2022,Hong Kong,75.0
+3,2022,India,55.07
+3,2022,Indonesia,66.07
+3,2022,Iran,62.04
+3,2022,Iraq,45.73
+3,2022,Israel,21.3
+3,2022,Japan,47.22
+3,2022,Jordan,20.37
+3,2022,Kazakhstan,62.04
+3,2022,Kuwait,21.94
+3,2022,Kyrgyzstan,36.11
+3,2022,Laos,72.2
+3,2022,Lebanon,45.63
+3,2022,Macao,54.63
+3,2022,Malaysia,40.01
+3,2022,Maldives,
+3,2022,Mongolia,5.56
+3,2022,Myanmar,78.7
+3,2022,Nepal,29.28
+3,2022,North Korea,
+3,2022,Northern Cyprus,
+3,2022,Oman,30.63
+3,2022,Pakistan,56.72
+3,2022,Palestine,22.22
+3,2022,Philippines,58.0
+3,2022,Qatar,45.92
+3,2022,Saudi Arabia,52.54
+3,2022,Singapore,46.73
+3,2022,South Korea,40.74
+3,2022,Sri Lanka,42.64
+3,2022,Syria,26.85
+3,2022,Taiwan,27.76
+3,2022,Tajikistan,15.74
+3,2022,Thailand,48.61
+3,2022,Timor,43.53
+3,2022,Turkey,36.56
+3,2022,Turkmenistan,
+3,2022,United Arab Emirates,32.37
+3,2022,Uzbekistan,49.07
+3,2022,Vietnam,66.67
+3,2022,Yemen,35.19
+4,2020,Afghanistan,84.26
+4,2020,Armenia,
+4,2020,Azerbaijan,91.67
+4,2020,Bahrain,78.7
+4,2020,Bangladesh,93.52
+4,2020,Bhutan,83.33
+4,2020,Brunei,58.33
+4,2020,Cambodia,76.85
+4,2020,China,73.61
+4,2020,Georgia,100.0
+4,2020,Hong Kong,66.67
+4,2020,India,100.0
+4,2020,Indonesia,80.09
+4,2020,Iran,59.26
+4,2020,Iraq,96.3
+4,2020,Israel,94.44
+4,2020,Japan,47.22
+4,2020,Jordan,100.0
+4,2020,Kazakhstan,92.13
+4,2020,Kuwait,93.52
+4,2020,Kyrgyzstan,92.13
+4,2020,Laos,96.3
+4,2020,Lebanon,85.19
+4,2020,Macao,44.44
+4,2020,Malaysia,78.7
+4,2020,Maldives,
+4,2020,Mongolia,77.78
+4,2020,Myanmar,86.11
+4,2020,Nepal,96.3
+4,2020,North Korea,
+4,2020,Oman,92.59
+4,2020,Pakistan,96.3
+4,2020,Palestine,96.3
+4,2020,Philippines,100.0
+4,2020,Qatar,86.11
+4,2020,Saudi Arabia,94.44
+4,2020,Singapore,82.41
+4,2020,South Korea,82.41
+4,2020,Sri Lanka,100.0
+4,2020,Syria,87.04
+4,2020,Taiwan,31.48
+4,2020,Thailand,76.85
+4,2020,Timor,77.78
+4,2020,Turkey,77.78
+4,2020,United Arab Emirates,89.81
+4,2020,Uzbekistan,93.52
+4,2020,Vietnam,96.3
+4,2020,Yemen,64.81
+4,2021,Afghanistan,26.85
+4,2021,Armenia,
+4,2021,Azerbaijan,73.15
+4,2021,Bahrain,56.48
+4,2021,Bangladesh,88.89
+4,2021,Bhutan,72.22
+4,2021,Brunei,40.74
+4,2021,Cambodia,83.8
+4,2021,China,78.24
+4,2021,Georgia,64.81
+4,2021,Hong Kong,71.3
+4,2021,India,74.54
+4,2021,Indonesia,71.76
+4,2021,Iran,83.33
+4,2021,Iraq,77.31
+4,2021,Israel,55.39
+4,2021,Japan,49.07
+4,2021,Jordan,75.93
+4,2021,Kazakhstan,76.85
+4,2021,Kuwait,81.48
+4,2021,Kyrgyzstan,58.33
+4,2021,Laos,86.11
+4,2021,Lebanon,81.48
+4,2021,Macao,23.15
+4,2021,Malaysia,68.06
+4,2021,Maldives,
+4,2021,Mongolia,96.3
+4,2021,Myanmar,81.48
+4,2021,Nepal,91.67
+4,2021,North Korea,
+4,2021,Northern Cyprus,
+4,2021,Oman,84.26
+4,2021,Pakistan,78.24
+4,2021,Palestine,79.63
+4,2021,Philippines,81.02
+4,2021,Qatar,85.19
+4,2021,Saudi Arabia,53.7
+4,2021,Singapore,50.93
+4,2021,South Korea,58.33
+4,2021,Sri Lanka,59.26
+4,2021,Syria,57.87
+4,2021,Taiwan,25.0
+4,2021,Tajikistan,32.41
+4,2021,Thailand,59.26
+4,2021,Timor,87.04
+4,2021,Turkey,87.04
+4,2021,Turkmenistan,
+4,2021,United Arab Emirates,56.48
+4,2021,Uzbekistan,37.04
+4,2021,Vietnam,69.91
+4,2021,Yemen,34.26
+4,2022,Afghanistan,16.67
+4,2022,Armenia,
+4,2022,Azerbaijan,50.6
+4,2022,Bahrain,29.63
+4,2022,Bangladesh,13.89
+4,2022,Bhutan,57.41
+4,2022,Brunei,46.18
+4,2022,Cambodia,27.3
+4,2022,China,79.17
+4,2022,Georgia,21.3
+4,2022,Hong Kong,75.0
+4,2022,India,50.46
+4,2022,Indonesia,52.11
+4,2022,Iran,62.83
+4,2022,Iraq,45.3
+4,2022,Israel,17.59
+4,2022,Japan,45.37
+4,2022,Jordan,20.37
+4,2022,Kazakhstan,56.48
+4,2022,Kuwait,21.94
+4,2022,Kyrgyzstan,41.67
+4,2022,Laos,65.74
+4,2022,Lebanon,45.54
+4,2022,Macao,32.41
+4,2022,Malaysia,31.22
+4,2022,Maldives,
+4,2022,Mongolia,0.0
+4,2022,Myanmar,78.7
+4,2022,Nepal,26.4
+4,2022,Northern Cyprus,
+4,2022,Oman,26.77
+4,2022,Pakistan,44.53
+4,2022,Palestine,22.22
+4,2022,Philippines,31.02
+4,2022,Qatar,41.98
+4,2022,Saudi Arabia,45.44
+4,2022,Singapore,46.64
+4,2022,South Korea,38.35
+4,2022,Sri Lanka,36.13
+4,2022,Syria,26.85
+4,2022,Taiwan,27.72
+4,2022,Tajikistan,15.74
+4,2022,Thailand,40.28
+4,2022,Timor,19.64
+4,2022,Turkey,17.59
+4,2022,Turkmenistan,
+4,2022,United Arab Emirates,32.24
+4,2022,Uzbekistan,40.74
+4,2022,Vietnam,63.89
+4,2022,Yemen,35.19
+5,2020,Afghanistan,84.26
+5,2020,Armenia,
+5,2020,Azerbaijan,87.96
+5,2020,Bahrain,75.0
+5,2020,Bangladesh,93.52
+5,2020,Bhutan,83.33
+5,2020,Brunei,58.33
+5,2020,Cambodia,65.74
+5,2020,China,81.94
+5,2020,Georgia,96.3
+5,2020,Hong Kong,66.67
+5,2020,India,96.3
+5,2020,Indonesia,80.09
+5,2020,Iran,53.7
+5,2020,Iraq,92.59
+5,2020,Israel,84.26
+5,2020,Japan,47.22
+5,2020,Jordan,89.81
+5,2020,Kazakhstan,89.35
+5,2020,Kuwait,100.0
+5,2020,Kyrgyzstan,88.43
+5,2020,Laos,96.3
+5,2020,Lebanon,85.19
+5,2020,Macao,40.74
+5,2020,Malaysia,78.7
+5,2020,Maldives,
+5,2020,Mongolia,85.19
+5,2020,Myanmar,86.11
+5,2020,Nepal,96.3
+5,2020,North Korea,
+5,2020,Oman,87.96
+5,2020,Pakistan,89.81
+5,2020,Palestine,96.3
+5,2020,Philippines,96.3
+5,2020,Qatar,83.33
+5,2020,Saudi Arabia,91.67
+5,2020,Singapore,82.41
+5,2020,South Korea,55.09
+5,2020,Sri Lanka,82.41
+5,2020,Syria,87.04
+5,2020,Taiwan,31.48
+5,2020,Tajikistan,55.56
+5,2020,Thailand,76.85
+5,2020,Timor,66.67
+5,2020,Turkey,75.93
+5,2020,United Arab Emirates,81.48
+5,2020,Uzbekistan,93.52
+5,2020,Vietnam,76.85
+5,2020,Yemen,64.81
+5,2021,Afghanistan,54.63
+5,2021,Armenia,
+5,2021,Azerbaijan,78.7
+5,2021,Bahrain,66.67
+5,2021,Bangladesh,83.33
+5,2021,Bhutan,71.3
+5,2021,Brunei,40.74
+5,2021,Cambodia,83.8
+5,2021,China,78.24
+5,2021,Georgia,64.81
+5,2021,Hong Kong,71.3
+5,2021,India,81.94
+5,2021,Indonesia,71.76
+5,2021,Iran,81.48
+5,2021,Iraq,77.31
+5,2021,Israel,47.61
+5,2021,Japan,49.07
+5,2021,Jordan,70.37
+5,2021,Kazakhstan,68.52
+5,2021,Kuwait,81.48
+5,2021,Kyrgyzstan,54.63
+5,2021,Laos,85.19
+5,2021,Lebanon,81.39
+5,2021,Macao,23.15
+5,2021,Malaysia,80.56
+5,2021,Maldives,
+5,2021,Mongolia,96.3
+5,2021,Myanmar,72.22
+5,2021,Nepal,97.22
+5,2021,North Korea,
+5,2021,Northern Cyprus,
+5,2021,Oman,80.56
+5,2021,Pakistan,78.24
+5,2021,Palestine,87.04
+5,2021,Philippines,74.54
+5,2021,Qatar,85.19
+5,2021,Saudi Arabia,53.7
+5,2021,Singapore,58.33
+5,2021,South Korea,58.33
+5,2021,Sri Lanka,90.74
+5,2021,Syria,57.87
+5,2021,Taiwan,76.85
+5,2021,Tajikistan,35.19
+5,2021,Thailand,59.26
+5,2021,Timor,82.87
+5,2021,Turkey,87.04
+5,2021,Turkmenistan,
+5,2021,United Arab Emirates,56.48
+5,2021,Uzbekistan,50.0
+5,2021,Vietnam,77.31
+5,2021,Yemen,34.26
+5,2022,Afghanistan,16.67
+5,2022,Armenia,
+5,2022,Azerbaijan,46.09
+5,2022,Bahrain,11.11
+5,2022,Bangladesh,13.89
+5,2022,Bhutan,38.89
+5,2022,Brunei,46.18
+5,2022,Cambodia,21.73
+5,2022,China,79.17
+5,2022,Georgia,21.3
+5,2022,Hong Kong,57.91
+5,2022,India,37.04
+5,2022,Indonesia,45.0
+5,2022,Iran,59.17
+5,2022,Iraq,45.23
+5,2022,Israel,17.59
+5,2022,Japan,45.37
+5,2022,Jordan,20.37
+5,2022,Kazakhstan,22.22
+5,2022,Kuwait,11.11
+5,2022,Kyrgyzstan,41.67
+5,2022,Laos,65.74
+5,2022,Lebanon,30.56
+5,2022,Macao,32.41
+5,2022,Malaysia,21.89
+5,2022,Maldives,
+5,2022,Mongolia,0.0
+5,2022,Myanmar,56.85
+5,2022,Nepal,25.97
+5,2022,North Korea,
+5,2022,Northern Cyprus,
+5,2022,Oman,26.71
+5,2022,Pakistan,43.0
+5,2022,Palestine,22.22
+5,2022,Philippines,30.9
+5,2022,Qatar,32.7
+5,2022,Saudi Arabia,40.83
+5,2022,Singapore,28.44
+5,2022,South Korea,14.28
+5,2022,Sri Lanka,32.42
+5,2022,Syria,26.85
+5,2022,Taiwan,26.85
+5,2022,Tajikistan,15.74
+5,2022,Thailand,41.2
+5,2022,Timor,19.38
+5,2022,Turkey,13.89
+5,2022,Turkmenistan,
+5,2022,United Arab Emirates,32.3
+5,2022,Uzbekistan,28.7
+5,2022,Vietnam,28.7
+5,2022,Yemen,28.7
+6,2020,Afghanistan,84.26
+6,2020,Armenia,
+6,2020,Azerbaijan,96.3
+6,2020,Bahrain,75.0
+6,2020,Bangladesh,74.54
+6,2020,Bhutan,83.33
+6,2020,Brunei,52.78
+6,2020,Cambodia,49.07
+6,2020,China,81.94
+6,2020,Georgia,69.44
+6,2020,Hong Kong,52.78
+6,2020,India,87.5
+6,2020,Indonesia,71.76
+6,2020,Iran,44.44
+6,2020,Iraq,92.59
+6,2020,Israel,75.0
+6,2020,Japan,28.7
+6,2020,Jordan,77.78
+6,2020,Kazakhstan,81.02
+6,2020,Kuwait,83.8
+6,2020,Kyrgyzstan,79.17
+6,2020,Laos,43.52
+6,2020,Lebanon,74.07
+6,2020,Macao,34.26
+6,2020,Malaysia,75.0
+6,2020,Maldives,
+6,2020,Mongolia,71.3
+6,2020,Myanmar,80.56
+6,2020,Nepal,92.59
+6,2020,North Korea,
+6,2020,Oman,87.96
+6,2020,Pakistan,82.41
+6,2020,Palestine,80.56
+6,2020,Philippines,79.63
+6,2020,Qatar,83.33
+6,2020,Saudi Arabia,81.94
+6,2020,Singapore,73.15
+6,2020,South Korea,55.09
+6,2020,Sri Lanka,76.85
+6,2020,Syria,69.44
+6,2020,Taiwan,25.93
+6,2020,Tajikistan,69.44
+6,2020,Thailand,75.0
+6,2020,Timor,33.33
+6,2020,Turkey,63.89
+6,2020,United Arab Emirates,72.22
+6,2020,Uzbekistan,81.94
+6,2020,Vietnam,69.44
+6,2020,Yemen,63.89
+6,2021,Afghanistan,46.3
+6,2021,Armenia,
+6,2021,Azerbaijan,69.44
+6,2021,Bahrain,66.67
+6,2021,Bangladesh,86.11
+6,2021,Bhutan,68.52
+6,2021,Brunei,40.74
+6,2021,Cambodia,83.8
+6,2021,China,78.24
+6,2021,Georgia,64.81
+6,2021,Hong Kong,71.3
+6,2021,India,81.94
+6,2021,Indonesia,71.76
+6,2021,Iran,76.39
+6,2021,Iraq,77.31
+6,2021,Israel,29.63
+6,2021,Japan,55.09
+6,2021,Jordan,53.7
+6,2021,Kazakhstan,62.96
+6,2021,Kuwait,73.97
+6,2021,Kyrgyzstan,57.41
+6,2021,Laos,74.07
+6,2021,Lebanon,71.17
+6,2021,Macao,28.7
+6,2021,Malaysia,80.56
+6,2021,Maldives,
+6,2021,Mongolia,59.26
+6,2021,Myanmar,72.22
+6,2021,Nepal,94.44
+6,2021,North Korea,
+6,2021,Northern Cyprus,
+6,2021,Oman,75.0
+6,2021,Pakistan,68.98
+6,2021,Palestine,88.89
+6,2021,Philippines,74.54
+6,2021,Qatar,68.11
+6,2021,Saudi Arabia,53.7
+6,2021,Singapore,58.33
+6,2021,South Korea,50.0
+6,2021,Sri Lanka,85.19
+6,2021,Syria,46.76
+6,2021,Taiwan,74.07
+6,2021,Tajikistan,35.19
+6,2021,Thailand,59.26
+6,2021,Timor,64.35
+6,2021,Turkey,64.81
+6,2021,Turkmenistan,
+6,2021,United Arab Emirates,61.11
+6,2021,Uzbekistan,50.0
+6,2021,Vietnam,77.31
+6,2021,Yemen,37.96
+6,2022,Afghanistan,11.11
+6,2022,Armenia,
+6,2022,Azerbaijan,46.05
+6,2022,Bahrain,11.11
+6,2022,Bangladesh,13.89
+6,2022,Bhutan,22.22
+6,2022,Brunei,14.3
+6,2022,Cambodia,17.99
+6,2022,China,79.17
+6,2022,Georgia,13.89
+6,2022,Hong Kong,47.29
+6,2022,India,37.04
+6,2022,Indonesia,43.73
+6,2022,Iran,57.2
+6,2022,Iraq,41.49
+6,2022,Israel,14.81
+6,2022,Japan,43.08
+6,2022,Jordan,20.37
+6,2022,Kazakhstan,13.89
+6,2022,Kuwait,11.11
+6,2022,Kyrgyzstan,36.11
+6,2022,Laos,42.37
+6,2022,Lebanon,26.85
+6,2022,Macao,78.7
+6,2022,Malaysia,14.45
+6,2022,Maldives,
+6,2022,Mongolia,11.11
+6,2022,Myanmar,58.73
+6,2022,Nepal,25.73
+6,2022,North Korea,
+6,2022,Northern Cyprus,
+6,2022,Oman,11.11
+6,2022,Pakistan,42.62
+6,2022,Palestine,22.22
+6,2022,Philippines,30.77
+6,2022,Qatar,32.6
+6,2022,Saudi Arabia,40.83
+6,2022,Singapore,28.35
+6,2022,South Korea,14.28
+6,2022,Sri Lanka,26.86
+6,2022,Syria,26.85
+6,2022,Taiwan,26.85
+6,2022,Tajikistan,8.33
+6,2022,Thailand,30.09
+6,2022,Timor,15.27
+6,2022,Turkey,11.11
+6,2022,Turkmenistan,
+6,2022,United Arab Emirates,32.26
+6,2022,Uzbekistan,25.0
+6,2022,Vietnam,25.93
+6,2022,Yemen,25.93
+7,2020,Afghanistan,78.7
+7,2020,Armenia,
+7,2020,Azerbaijan,96.3
+7,2020,Bahrain,75.0
+7,2020,Bangladesh,80.09
+7,2020,Bhutan,71.3
+7,2020,Brunei,49.07
+7,2020,Cambodia,49.07
+7,2020,China,78.24
+7,2020,Georgia,58.33
+7,2020,Hong Kong,66.67
+7,2020,India,87.5
+7,2020,Indonesia,62.5
+7,2020,Iran,61.57
+7,2020,Iraq,96.3
+7,2020,Israel,75.93
+7,2020,Japan,34.26
+7,2020,Jordan,48.15
+7,2020,Kazakhstan,83.33
+7,2020,Kuwait,83.33
+7,2020,Kyrgyzstan,79.17
+7,2020,Laos,20.37
+7,2020,Lebanon,68.52
+7,2020,Macao,23.15
+7,2020,Malaysia,50.93
+7,2020,Maldives,
+7,2020,Mongolia,71.3
+7,2020,Myanmar,80.56
+7,2020,Nepal,92.59
+7,2020,North Korea,
+7,2020,Oman,100.0
+7,2020,Pakistan,66.67
+7,2020,Palestine,83.33
+7,2020,Philippines,79.63
+7,2020,Qatar,80.56
+7,2020,Saudi Arabia,71.3
+7,2020,Singapore,56.48
+7,2020,South Korea,56.94
+7,2020,Sri Lanka,53.7
+7,2020,Syria,69.44
+7,2020,Taiwan,23.15
+7,2020,Tajikistan,52.78
+7,2020,Thailand,52.78
+7,2020,Timor,29.63
+7,2020,Turkey,63.89
+7,2020,United Arab Emirates,72.22
+7,2020,Uzbekistan,73.15
+7,2020,Vietnam,79.63
+7,2020,Yemen,63.89
+7,2021,Afghanistan,56.02
+7,2021,Armenia,
+7,2021,Azerbaijan,65.15
+7,2021,Bahrain,66.67
+7,2021,Bangladesh,93.52
+7,2021,Bhutan,63.43
+7,2021,Brunei,40.74
+7,2021,Cambodia,83.8
+7,2021,China,81.94
+7,2021,Georgia,25.0
+7,2021,Hong Kong,71.3
+7,2021,India,81.94
+7,2021,Indonesia,71.76
+7,2021,Iran,68.06
+7,2021,Iraq,75.93
+7,2021,Israel,37.63
+7,2021,Japan,53.24
+7,2021,Jordan,51.85
+7,2021,Kazakhstan,71.3
+7,2021,Kuwait,66.57
+7,2021,Kyrgyzstan,57.41
+7,2021,Laos,60.19
+7,2021,Lebanon,65.52
+7,2021,Macao,31.48
+7,2021,Malaysia,85.19
+7,2021,Maldives,
+7,2021,Mongolia,61.11
+7,2021,Myanmar,69.91
+7,2021,Nepal,68.52
+7,2021,North Korea,
+7,2021,Northern Cyprus,
+7,2021,Oman,77.78
+7,2021,Pakistan,69.44
+7,2021,Palestine,88.89
+7,2021,Philippines,71.76
+7,2021,Qatar,59.84
+7,2021,Saudi Arabia,53.7
+7,2021,Singapore,54.63
+7,2021,South Korea,49.07
+7,2021,Sri Lanka,81.48
+7,2021,Syria,32.87
+7,2021,Taiwan,74.07
+7,2021,Tajikistan,35.19
+7,2021,Thailand,72.22
+7,2021,Timor,63.81
+7,2021,Turkey,55.56
+7,2021,Turkmenistan,
+7,2021,United Arab Emirates,59.33
+7,2021,Uzbekistan,68.52
+7,2021,Vietnam,79.17
+7,2021,Yemen,37.96
+7,2022,Afghanistan,11.11
+7,2022,Armenia,
+7,2022,Azerbaijan,40.37
+7,2022,Bahrain,11.11
+7,2022,Bangladesh,13.89
+7,2022,Bhutan,22.22
+7,2022,Brunei,13.97
+7,2022,Cambodia,17.99
+7,2022,China,73.61
+7,2022,Georgia,11.11
+7,2022,Hong Kong,47.19
+7,2022,India,37.04
+7,2022,Indonesia,29.94
+7,2022,Iran,54.03
+7,2022,Iraq,41.45
+7,2022,Israel,14.81
+7,2022,Japan,37.52
+7,2022,Jordan,14.81
+7,2022,Kazakhstan,11.11
+7,2022,Kuwait,11.11
+7,2022,Kyrgyzstan,33.33
+7,2022,Laos,42.32
+7,2022,Lebanon,26.85
+7,2022,Macao,73.15
+7,2022,Malaysia,14.43
+7,2022,Maldives,
+7,2022,Mongolia,11.11
+7,2022,Myanmar,58.73
+7,2022,Nepal,25.39
+7,2022,North Korea,
+7,2022,Northern Cyprus,
+7,2022,Oman,11.11
+7,2022,Pakistan,41.69
+7,2022,Palestine,22.22
+7,2022,Philippines,30.58
+7,2022,Qatar,32.56
+7,2022,Saudi Arabia,11.11
+7,2022,Singapore,28.31
+7,2022,South Korea,13.89
+7,2022,Sri Lanka,26.86
+7,2022,Syria,29.63
+7,2022,Taiwan,26.85
+7,2022,Tajikistan,8.33
+7,2022,Thailand,24.07
+7,2022,Timor,15.22
+7,2022,Turkey,11.11
+7,2022,Turkmenistan,
+7,2022,United Arab Emirates,41.67
+7,2022,Uzbekistan,11.11
+7,2022,Vietnam,25.93
+7,2022,Yemen,11.11
+8,2020,Afghanistan,78.7
+8,2020,Armenia,
+8,2020,Azerbaijan,93.52
+8,2020,Bahrain,69.44
+8,2020,Bangladesh,80.09
+8,2020,Bhutan,97.22
+8,2020,Brunei,40.74
+8,2020,Cambodia,55.56
+8,2020,China,78.24
+8,2020,Georgia,57.41
+8,2020,Hong Kong,66.67
+8,2020,India,85.65
+8,2020,Indonesia,62.5
+8,2020,Iran,61.57
+8,2020,Iraq,96.3
+8,2020,Israel,52.78
+8,2020,Japan,34.26
+8,2020,Jordan,60.19
+8,2020,Kazakhstan,80.56
+8,2020,Kuwait,74.07
+8,2020,Kyrgyzstan,79.17
+8,2020,Laos,36.11
+8,2020,Lebanon,75.93
+8,2020,Macao,23.15
+8,2020,Malaysia,64.81
+8,2020,Maldives,
+8,2020,Mongolia,60.19
+8,2020,Myanmar,81.48
+8,2020,Nepal,90.74
+8,2020,North Korea,
+8,2020,Oman,94.44
+8,2020,Pakistan,66.67
+8,2020,Palestine,83.33
+8,2020,Philippines,79.63
+8,2020,Qatar,77.78
+8,2020,Saudi Arabia,71.3
+8,2020,Singapore,56.48
+8,2020,South Korea,53.24
+8,2020,Sri Lanka,44.44
+8,2020,Syria,69.44
+8,2020,Taiwan,23.15
+8,2020,Tajikistan,53.7
+8,2020,Thailand,52.78
+8,2020,Timor,29.63
+8,2020,Turkey,48.15
+8,2020,United Arab Emirates,56.48
+8,2020,Uzbekistan,73.15
+8,2020,Vietnam,79.63
+8,2020,Yemen,31.48
+8,2021,Afghanistan,52.31
+8,2021,Armenia,
+8,2021,Azerbaijan,60.45
+8,2021,Bahrain,47.37
+8,2021,Bangladesh,93.52
+8,2021,Bhutan,72.22
+8,2021,Brunei,76.85
+8,2021,Cambodia,83.33
+8,2021,China,70.83
+8,2021,Georgia,50.93
+8,2021,Hong Kong,65.74
+8,2021,India,74.54
+8,2021,Indonesia,71.55
+8,2021,Iran,74.54
+8,2021,Iraq,75.93
+8,2021,Israel,52.29
+8,2021,Japan,52.31
+8,2021,Jordan,57.41
+8,2021,Kazakhstan,79.17
+8,2021,Kuwait,60.28
+8,2021,Kyrgyzstan,57.41
+8,2021,Laos,53.7
+8,2021,Lebanon,65.32
+8,2021,Macao,31.48
+8,2021,Malaysia,85.19
+8,2021,Maldives,
+8,2021,Mongolia,61.11
+8,2021,Myanmar,66.2
+8,2021,Nepal,70.37
+8,2021,North Korea,
+8,2021,Northern Cyprus,
+8,2021,Oman,66.67
+8,2021,Pakistan,70.29
+8,2021,Palestine,87.04
+8,2021,Philippines,78.66
+8,2021,Qatar,48.39
+8,2021,Saudi Arabia,57.92
+8,2021,Singapore,50.93
+8,2021,South Korea,50.93
+8,2021,Sri Lanka,83.33
+8,2021,Syria,37.04
+8,2021,Taiwan,62.04
+8,2021,Tajikistan,35.19
+8,2021,Thailand,75.93
+8,2021,Timor,71.56
+8,2021,Turkey,55.56
+8,2021,Turkmenistan,
+8,2021,United Arab Emirates,59.81
+8,2021,Uzbekistan,71.3
+8,2021,Vietnam,79.17
+8,2021,Yemen,37.96
+8,2022,Afghanistan,11.11
+8,2022,Armenia,
+8,2022,Azerbaijan,44.77
+8,2022,Bahrain,11.11
+8,2022,Bangladesh,13.89
+8,2022,Bhutan,16.67
+8,2022,Brunei,13.97
+8,2022,Cambodia,20.37
+8,2022,China,79.17
+8,2022,Georgia,11.11
+8,2022,Hong Kong,47.14
+8,2022,India,37.04
+8,2022,Indonesia,29.96
+8,2022,Iran,54.0
+8,2022,Iraq,41.43
+8,2022,Israel,14.81
+8,2022,Japan,37.52
+8,2022,Jordan,14.81
+8,2022,Kazakhstan,5.56
+8,2022,Kuwait,11.11
+8,2022,Kyrgyzstan,33.33
+8,2022,Laos,42.32
+8,2022,Lebanon,26.85
+8,2022,Macao,73.15
+8,2022,Malaysia,11.11
+8,2022,Maldives,
+8,2022,Mongolia,11.11
+8,2022,Myanmar,54.63
+8,2022,Nepal,25.13
+8,2022,North Korea,
+8,2022,Northern Cyprus,
+8,2022,Oman,11.11
+8,2022,Pakistan,41.04
+8,2022,Palestine,22.22
+8,2022,Philippines,30.48
+8,2022,Qatar,32.26
+8,2022,Saudi Arabia,11.11
+8,2022,Singapore,28.3
+8,2022,South Korea,13.89
+8,2022,Sri Lanka,26.85
+8,2022,Syria,29.63
+8,2022,Taiwan,26.85
+8,2022,Tajikistan,8.33
+8,2022,Thailand,29.63
+8,2022,Timor,15.16
+8,2022,Turkey,11.11
+8,2022,Turkmenistan,
+8,2022,United Arab Emirates,41.67
+8,2022,Uzbekistan,5.56
+8,2022,Vietnam,25.93
+8,2022,Yemen,5.56
+9,2020,Afghanistan,28.7
+9,2020,Armenia,
+9,2020,Azerbaijan,85.19
+9,2020,Bahrain,63.89
+9,2020,Bangladesh,80.09
+9,2020,Bhutan,92.13
+9,2020,Brunei,37.96
+9,2020,Cambodia,52.78
+9,2020,China,81.94
+9,2020,Georgia,67.59
+9,2020,Hong Kong,66.67
+9,2020,India,85.65
+9,2020,Indonesia,72.69
+9,2020,Iran,60.19
+9,2020,Iraq,84.26
+9,2020,Israel,85.19
+9,2020,Japan,35.19
+9,2020,Jordan,70.37
+9,2020,Kazakhstan,80.56
+9,2020,Kuwait,74.07
+9,2020,Kyrgyzstan,69.91
+9,2020,Laos,36.11
+9,2020,Lebanon,75.93
+9,2020,Macao,23.15
+9,2020,Malaysia,66.2
+9,2020,Maldives,
+9,2020,Mongolia,56.48
+9,2020,Myanmar,81.48
+9,2020,Nepal,82.41
+9,2020,North Korea,
+9,2020,Oman,86.11
+9,2020,Pakistan,47.69
+9,2020,Palestine,87.04
+9,2020,Philippines,67.13
+9,2020,Qatar,64.81
+9,2020,Saudi Arabia,60.19
+9,2020,Singapore,56.48
+9,2020,South Korea,60.19
+9,2020,Sri Lanka,29.63
+9,2020,Syria,53.24
+9,2020,Taiwan,23.15
+9,2020,Tajikistan,45.37
+9,2020,Thailand,50.0
+9,2020,Timor,29.63
+9,2020,Turkey,73.61
+9,2020,United Arab Emirates,54.63
+9,2020,Uzbekistan,49.07
+9,2020,Vietnam,81.02
+9,2020,Yemen,33.33
+9,2021,Afghanistan,42.59
+9,2021,Armenia,
+9,2021,Azerbaijan,61.38
+9,2021,Bahrain,33.45
+9,2021,Bangladesh,50.93
+9,2021,Bhutan,62.96
+9,2021,Brunei,76.85
+9,2021,Cambodia,81.48
+9,2021,China,76.39
+9,2021,Georgia,50.93
+9,2021,Hong Kong,59.26
+9,2021,India,69.34
+9,2021,Indonesia,73.66
+9,2021,Iran,74.54
+9,2021,Iraq,75.93
+9,2021,Israel,52.21
+9,2021,Japan,52.31
+9,2021,Jordan,23.15
+9,2021,Kazakhstan,79.17
+9,2021,Kuwait,53.43
+9,2021,Kyrgyzstan,49.07
+9,2021,Laos,75.46
+9,2021,Lebanon,65.74
+9,2021,Macao,62.04
+9,2021,Malaysia,69.6
+9,2021,Maldives,
+9,2021,Mongolia,53.7
+9,2021,Myanmar,71.3
+9,2021,Nepal,52.31
+9,2021,North Korea,
+9,2021,Northern Cyprus,
+9,2021,Oman,63.54
+9,2021,Pakistan,70.62
+9,2021,Palestine,87.04
+9,2021,Philippines,78.49
+9,2021,Qatar,52.0
+9,2021,Saudi Arabia,64.24
+9,2021,Singapore,47.33
+9,2021,South Korea,49.16
+9,2021,Sri Lanka,80.56
+9,2021,Syria,37.04
+9,2021,Taiwan,49.07
+9,2021,Tajikistan,29.63
+9,2021,Thailand,55.09
+9,2021,Timor,58.49
+9,2021,Turkey,45.45
+9,2021,Turkmenistan,
+9,2021,United Arab Emirates,42.13
+9,2021,Uzbekistan,61.11
+9,2021,Vietnam,74.54
+9,2021,Yemen,35.19
+9,2022,Afghanistan,11.11
+9,2022,Armenia,
+9,2022,Azerbaijan,44.77
+9,2022,Bahrain,11.11
+9,2022,Bangladesh,13.89
+9,2022,Bhutan,11.11
+9,2022,Brunei,13.92
+9,2022,Cambodia,20.37
+9,2022,China,75.46
+9,2022,Georgia,5.56
+9,2022,Hong Kong,48.89
+9,2022,India,37.04
+9,2022,Indonesia,29.96
+9,2022,Iran,53.97
+9,2022,Iraq,41.41
+9,2022,Israel,14.81
+9,2022,Japan,37.51
+9,2022,Jordan,11.11
+9,2022,Kazakhstan,5.56
+9,2022,Kuwait,11.11
+9,2022,Kyrgyzstan,33.33
+9,2022,Laos,42.04
+9,2022,Lebanon,26.85
+9,2022,Macao,37.96
+9,2022,Malaysia,11.11
+9,2022,Maldives,
+9,2022,Mongolia,11.11
+9,2022,Myanmar,54.63
+9,2022,Nepal,23.38
+9,2022,North Korea,
+9,2022,Northern Cyprus,
+9,2022,Oman,11.11
+9,2022,Pakistan,40.6
+9,2022,Palestine,13.89
+9,2022,Philippines,30.41
+9,2022,Qatar,32.24
+9,2022,Saudi Arabia,11.11
+9,2022,Singapore,18.66
+9,2022,South Korea,13.89
+9,2022,Sri Lanka,26.85
+9,2022,Syria,26.85
+9,2022,Taiwan,26.85
+9,2022,Tajikistan,8.33
+9,2022,Thailand,29.63
+9,2022,Timor,15.13
+9,2022,Turkey,11.11
+9,2022,Turkmenistan,
+9,2022,United Arab Emirates,41.67
+9,2022,Uzbekistan,5.56
+9,2022,Vietnam,25.93
+9,2022,Yemen,5.56
+10,2020,Afghanistan,28.7
+10,2020,Armenia,
+10,2020,Azerbaijan,69.91
+10,2020,Bahrain,60.19
+10,2020,Bangladesh,80.09
+10,2020,Bhutan,77.78
+10,2020,Brunei,35.19
+10,2020,Cambodia,45.37
+10,2020,China,81.94
+10,2020,Georgia,61.11
+10,2020,Hong Kong,51.85
+10,2020,India,73.61
+10,2020,Indonesia,72.69
+10,2020,Iran,70.83
+10,2020,Iraq,66.67
+10,2020,Israel,85.19
+10,2020,Japan,35.19
+10,2020,Jordan,81.48
+10,2020,Kazakhstan,78.7
+10,2020,Kuwait,74.07
+10,2020,Kyrgyzstan,64.35
+10,2020,Laos,36.11
+10,2020,Lebanon,70.37
+10,2020,Macao,23.15
+10,2020,Malaysia,65.74
+10,2020,Maldives,
+10,2020,Mongolia,42.59
+10,2020,Myanmar,81.02
+10,2020,Nepal,76.85
+10,2020,North Korea,
+10,2020,Oman,86.11
+10,2020,Pakistan,67.13
+10,2020,Palestine,82.41
+10,2020,Philippines,68.98
+10,2020,Qatar,64.81
+10,2020,Saudi Arabia,57.41
+10,2020,Singapore,50.93
+10,2020,South Korea,65.74
+10,2020,Sri Lanka,34.26
+10,2020,Syria,42.13
+10,2020,Taiwan,23.15
+10,2020,Tajikistan,42.59
+10,2020,Thailand,47.22
+10,2020,Timor,33.33
+10,2020,Turkey,71.76
+10,2020,United Arab Emirates,54.63
+10,2020,Uzbekistan,43.52
+10,2020,Vietnam,58.33
+10,2020,Yemen,33.33
+10,2021,Afghanistan,38.89
+10,2021,Armenia,
+10,2021,Azerbaijan,65.6
+10,2021,Bahrain,23.92
+10,2021,Bangladesh,43.52
+10,2021,Bhutan,61.11
+10,2021,Brunei,76.85
+10,2021,Cambodia,77.78
+10,2021,China,76.39
+10,2021,Georgia,47.22
+10,2021,Hong Kong,59.26
+10,2021,India,62.92
+10,2021,Indonesia,67.94
+10,2021,Iran,74.54
+10,2021,Iraq,75.93
+10,2021,Israel,52.02
+10,2021,Japan,47.22
+10,2021,Jordan,23.15
+10,2021,Kazakhstan,71.3
+10,2021,Kuwait,51.85
+10,2021,Kyrgyzstan,49.07
+10,2021,Laos,75.0
+10,2021,Lebanon,40.74
+10,2021,Macao,62.04
+10,2021,Malaysia,66.22
+10,2021,Maldives,
+10,2021,Mongolia,37.04
+10,2021,Myanmar,90.74
+10,2021,Nepal,38.89
+10,2021,North Korea,
+10,2021,Northern Cyprus,
+10,2021,Oman,49.36
+10,2021,Pakistan,48.82
+10,2021,Palestine,52.78
+10,2021,Philippines,78.65
+10,2021,Qatar,51.97
+10,2021,Saudi Arabia,60.82
+10,2021,Singapore,47.3
+10,2021,South Korea,44.35
+10,2021,Sri Lanka,71.3
+10,2021,Syria,60.65
+10,2021,Taiwan,52.78
+10,2021,Tajikistan,29.63
+10,2021,Thailand,60.65
+10,2021,Timor,46.3
+10,2021,Turkey,42.52
+10,2021,Turkmenistan,
+10,2021,United Arab Emirates,40.74
+10,2021,Uzbekistan,48.15
+10,2021,Vietnam,71.76
+10,2021,Yemen,32.41
+10,2022,Afghanistan,5.56
+10,2022,Armenia,
+10,2022,Azerbaijan,40.35
+10,2022,Bahrain,11.11
+10,2022,Bangladesh,13.89
+10,2022,Bhutan,5.56
+10,2022,Brunei,11.11
+10,2022,Cambodia,17.59
+10,2022,China,69.91
+10,2022,Georgia,5.56
+10,2022,Hong Kong,48.83
+10,2022,India,37.04
+10,2022,Indonesia,29.92
+10,2022,Iran,53.95
+10,2022,Iraq,41.39
+10,2022,Israel,14.81
+10,2022,Japan,31.48
+10,2022,Jordan,11.11
+10,2022,Kazakhstan,5.56
+10,2022,Kuwait,11.11
+10,2022,Kyrgyzstan,11.11
+10,2022,Laos,42.04
+10,2022,Lebanon,26.85
+10,2022,Macao,45.37
+10,2022,Malaysia,11.11
+10,2022,Maldives,
+10,2022,Mongolia,11.11
+10,2022,Myanmar,40.74
+10,2022,Nepal,22.64
+10,2022,North Korea,
+10,2022,Northern Cyprus,
+10,2022,Oman,11.11
+10,2022,Pakistan,40.46
+10,2022,Palestine,11.11
+10,2022,Philippines,30.35
+10,2022,Qatar,32.18
+10,2022,Saudi Arabia,11.11
+10,2022,Singapore,18.65
+10,2022,South Korea,11.11
+10,2022,Sri Lanka,22.22
+10,2022,Syria,13.89
+10,2022,Taiwan,24.07
+10,2022,Tajikistan,8.33
+10,2022,Thailand,5.56
+10,2022,Timor,15.12
+10,2022,Turkey,11.11
+10,2022,United Arab Emirates,36.11
+10,2022,Uzbekistan,5.56
+10,2022,Vietnam,25.93
+10,2022,Yemen,5.56
+11,2020,Afghanistan,12.04
+11,2020,Armenia,
+11,2020,Azerbaijan,69.91
+11,2020,Bahrain,54.63
+11,2020,Bangladesh,80.09
+11,2020,Bhutan,77.78
+11,2020,Brunei,35.19
+11,2020,Cambodia,70.37
+11,2020,China,81.94
+11,2020,Georgia,84.26
+11,2020,Hong Kong,68.52
+11,2020,India,68.98
+11,2020,Indonesia,64.35
+11,2020,Iran,72.69
+11,2020,Iraq,51.85
+11,2020,Israel,65.74
+11,2020,Japan,37.04
+11,2020,Jordan,81.48
+11,2020,Kazakhstan,69.91
+11,2020,Kuwait,71.3
+11,2020,Kyrgyzstan,55.09
+11,2020,Laos,33.33
+11,2020,Lebanon,87.04
+11,2020,Macao,23.15
+11,2020,Malaysia,80.09
+11,2020,Maldives,
+11,2020,Mongolia,85.19
+11,2020,Myanmar,79.63
+11,2020,Nepal,63.89
+11,2020,North Korea,
+11,2020,Oman,42.59
+11,2020,Pakistan,64.35
+11,2020,Palestine,68.06
+11,2020,Philippines,68.98
+11,2020,Qatar,64.81
+11,2020,Saudi Arabia,53.7
+11,2020,Singapore,50.93
+11,2020,South Korea,57.87
+11,2020,Sri Lanka,55.09
+11,2020,Syria,44.91
+11,2020,Taiwan,23.15
+11,2020,Tajikistan,42.59
+11,2020,Thailand,50.0
+11,2020,Timor,27.78
+11,2020,Turkey,66.2
+11,2020,United Arab Emirates,49.07
+11,2020,Uzbekistan,39.81
+11,2020,Vietnam,61.11
+11,2020,Yemen,16.67
+11,2021,Afghanistan,27.78
+11,2021,Armenia,
+11,2021,Azerbaijan,61.16
+11,2021,Bahrain,23.79
+11,2021,Bangladesh,40.27
+11,2021,Bhutan,53.24
+11,2021,Brunei,76.85
+11,2021,Cambodia,68.47
+11,2021,China,70.83
+11,2021,Georgia,50.0
+11,2021,Hong Kong,55.56
+11,2021,India,57.72
+11,2021,Indonesia,61.76
+11,2021,Iran,69.91
+11,2021,Iraq,68.52
+11,2021,Israel,51.91
+11,2021,Japan,47.22
+11,2021,Jordan,34.26
+11,2021,Kazakhstan,71.3
+11,2021,Kuwait,51.85
+11,2021,Kyrgyzstan,49.07
+11,2021,Laos,83.62
+11,2021,Lebanon,40.74
+11,2021,Macao,37.96
+11,2021,Malaysia,57.96
+11,2021,Maldives,
+11,2021,Mongolia,37.04
+11,2021,Myanmar,85.19
+11,2021,Nepal,38.89
+11,2021,North Korea,
+11,2021,Northern Cyprus,
+11,2021,Oman,50.19
+11,2021,Pakistan,42.96
+11,2021,Palestine,52.78
+11,2021,Philippines,78.38
+11,2021,Qatar,52.46
+11,2021,Saudi Arabia,46.87
+11,2021,Singapore,42.89
+11,2021,South Korea,43.28
+11,2021,Sri Lanka,58.33
+11,2021,Syria,60.65
+11,2021,Taiwan,41.67
+11,2021,Tajikistan,29.63
+11,2021,Thailand,60.65
+11,2021,Timor,46.3
+11,2021,Turkey,36.91
+11,2021,Turkmenistan,
+11,2021,United Arab Emirates,46.3
+11,2021,Uzbekistan,41.67
+11,2021,Vietnam,71.76
+11,2021,Yemen,32.41
+11,2022,Afghanistan,5.56
+11,2022,Armenia,
+11,2022,Azerbaijan,40.35
+11,2022,Bahrain,11.11
+11,2022,Bangladesh,13.89
+11,2022,Bhutan,0.0
+11,2022,Brunei,11.11
+11,2022,Cambodia,14.81
+11,2022,China,79.17
+11,2022,Georgia,5.56
+11,2022,Hong Kong,42.32
+11,2022,India,37.04
+11,2022,Indonesia,32.19
+11,2022,Iran,53.94
+11,2022,Iraq,41.38
+11,2022,Israel,14.81
+11,2022,Japan,31.48
+11,2022,Jordan,0.0
+11,2022,Kazakhstan,5.56
+11,2022,Kuwait,11.11
+11,2022,Kyrgyzstan,11.11
+11,2022,Laos,44.2
+11,2022,Lebanon,16.67
+11,2022,Macao,39.81
+11,2022,Malaysia,11.11
+11,2022,Maldives,
+11,2022,Mongolia,11.11
+11,2022,Myanmar,40.74
+11,2022,Nepal,22.09
+11,2022,North Korea,
+11,2022,Northern Cyprus,
+11,2022,Oman,11.11
+11,2022,Pakistan,40.38
+11,2022,Palestine,11.11
+11,2022,Philippines,25.42
+11,2022,Qatar,11.11
+11,2022,Saudi Arabia,11.11
+11,2022,Singapore,17.59
+11,2022,South Korea,11.11
+11,2022,Sri Lanka,25.93
+11,2022,Syria,13.89
+11,2022,Taiwan,21.3
+11,2022,Tajikistan,8.33
+11,2022,Thailand,5.56
+11,2022,Timor,20.64
+11,2022,Turkey,11.11
+11,2022,United Arab Emirates,13.89
+11,2022,Uzbekistan,5.56
+11,2022,Vietnam,23.15
+11,2022,Yemen,5.56
+12,2020,Afghanistan,12.04
+12,2020,Armenia,
+12,2020,Azerbaijan,84.26
+12,2020,Bahrain,54.63
+12,2020,Bangladesh,80.09
+12,2020,Bhutan,81.94
+12,2020,Brunei,35.19
+12,2020,Cambodia,70.37
+12,2020,China,81.94
+12,2020,Georgia,84.26
+12,2020,Hong Kong,71.3
+12,2020,India,68.98
+12,2020,Indonesia,68.06
+12,2020,Iran,72.69
+12,2020,Iraq,53.7
+12,2020,Israel,82.41
+12,2020,Japan,45.37
+12,2020,Jordan,81.48
+12,2020,Kazakhstan,75.0
+12,2020,Kuwait,71.3
+12,2020,Kyrgyzstan,50.46
+12,2020,Laos,29.63
+12,2020,Lebanon,87.04
+12,2020,Macao,23.15
+12,2020,Malaysia,80.09
+12,2020,Maldives,
+12,2020,Mongolia,85.19
+12,2020,Myanmar,75.93
+12,2020,Nepal,60.19
+12,2020,North Korea,
+12,2020,Oman,48.15
+12,2020,Pakistan,64.35
+12,2020,Palestine,68.06
+12,2020,Philippines,68.98
+12,2020,Qatar,64.81
+12,2020,Saudi Arabia,56.48
+12,2020,Singapore,50.93
+12,2020,South Korea,68.98
+12,2020,Sri Lanka,78.24
+12,2020,Syria,39.35
+12,2020,Taiwan,19.44
+12,2020,Tajikistan,42.59
+12,2020,Thailand,63.89
+12,2020,Timor,52.78
+12,2020,Turkey,80.09
+12,2020,United Arab Emirates,49.07
+12,2020,Uzbekistan,42.59
+12,2020,Vietnam,55.09
+12,2020,Yemen,27.78
+12,2021,Afghanistan,27.78
+12,2021,Armenia,
+12,2021,Azerbaijan,60.33
+12,2021,Bahrain,31.38
+12,2021,Bangladesh,40.14
+12,2021,Bhutan,53.24
+12,2021,Brunei,76.85
+12,2021,Cambodia,56.4
+12,2021,China,79.17
+12,2021,Georgia,45.08
+12,2021,Hong Kong,55.56
+12,2021,India,68.64
+12,2021,Indonesia,66.76
+12,2021,Iran,65.28
+12,2021,Iraq,68.52
+12,2021,Israel,49.08
+12,2021,Japan,47.22
+12,2021,Jordan,34.26
+12,2021,Kazakhstan,71.3
+12,2021,Kuwait,39.18
+12,2021,Kyrgyzstan,47.22
+12,2021,Laos,71.3
+12,2021,Lebanon,42.59
+12,2021,Macao,32.41
+12,2021,Malaysia,54.62
+12,2021,Maldives,
+12,2021,Mongolia,40.28
+12,2021,Myanmar,80.56
+12,2021,Nepal,38.89
+12,2021,North Korea,
+12,2021,Northern Cyprus,
+12,2021,Oman,50.19
+12,2021,Pakistan,49.17
+12,2021,Palestine,30.56
+12,2021,Philippines,67.71
+12,2021,Qatar,52.46
+12,2021,Saudi Arabia,45.64
+12,2021,Singapore,42.81
+12,2021,South Korea,46.4
+12,2021,Sri Lanka,58.33
+12,2021,Syria,37.96
+12,2021,Taiwan,20.37
+12,2021,Tajikistan,29.63
+12,2021,Thailand,43.52
+12,2021,Timor,40.95
+12,2021,Turkey,36.07
+12,2021,Turkmenistan,
+12,2021,United Arab Emirates,54.63
+12,2021,Uzbekistan,44.44
+12,2021,Vietnam,70.83
+12,2021,Yemen,26.85
+12,2022,Afghanistan,2.78
+12,2022,Armenia,
+12,2022,Azerbaijan,40.35
+12,2022,Bahrain,11.11
+12,2022,Bangladesh,13.89
+12,2022,Bhutan,0.0
+12,2022,Brunei,11.11
+12,2022,Cambodia,14.81
+12,2022,China,71.76
+12,2022,Georgia,5.56
+12,2022,Hong Kong,42.29
+12,2022,India,34.26
+12,2022,Indonesia,32.16
+12,2022,Iran,53.94
+12,2022,Iraq,41.37
+12,2022,Israel,14.81
+12,2022,Japan,31.48
+12,2022,Jordan,0.0
+12,2022,Kazakhstan,5.56
+12,2022,Kuwait,11.11
+12,2022,Kyrgyzstan,11.11
+12,2022,Laos,44.2
+12,2022,Lebanon,16.67
+12,2022,Macao,39.81
+12,2022,Malaysia,11.11
+12,2022,Maldives,
+12,2022,Mongolia,11.11
+12,2022,Myanmar,40.74
+12,2022,Nepal,21.74
+12,2022,North Korea,
+12,2022,Northern Cyprus,
+12,2022,Oman,
+12,2022,Pakistan,40.32
+12,2022,Palestine,11.11
+12,2022,Philippines,25.41
+12,2022,Qatar,11.11
+12,2022,Saudi Arabia,11.11
+12,2022,Singapore,17.59
+12,2022,South Korea,11.11
+12,2022,Sri Lanka,19.44
+12,2022,Syria,11.11
+12,2022,Taiwan,21.3
+12,2022,Tajikistan,8.33
+12,2022,Thailand,5.56
+12,2022,Timor,20.6
+12,2022,Turkey,
+12,2022,United Arab Emirates,13.89
+12,2022,Uzbekistan,
+12,2022,Vietnam,23.15
+12,2022,Yemen,5.56
