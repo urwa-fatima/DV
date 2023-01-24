@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Avatar: Choropleth Map 1</title>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <!-- <link href="../css/style.css" rel="stylesheet"> -->
+
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <style type="text/css">
+
+    </style>
+    <script src="https://unpkg.com/d3-simple-slider"></script>
+
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h1>Choropleth Map 1(Stringency Index)</h1>
+    </div>
+    <!-- Create an element where the map will take place -->
+    <div style="display: flex;">
+    </div>
+    <div class="row align-items-center">
+        <div class="col-sm-2">
+            <p id="value-time"></p>
+        </div>
+        <div class="col-sm">
+            <div id="slider-time"></div>
+        </div>
+    </div>
+    <div id="my_dataviz" style="border: 1px solid black; width: 1000px;">
+        <svg id="my_dataviz" width="1000" height="600"></svg>
+    </div>
+    <div style="position: absolute;top:850px; font-size:20px; margin-left:1%;">
+    </div>
+    <script>
+        var domain = [0, 10, 30, 50, 80, 100];
+
+        // Load external data and boot
+        var data = d3.map();
+        //
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        const d = new Date();
+        document.write("The current month is " + monthNames[d.getMonth()]);
+        // Time
+        var dataTime = d3.range(0, 36, 3).map(function (d) {
+            var year_add = Math.floor(d / 12)
+            var month = d % 12
+            return new Date(2020 + year_add, month, 1);
+        });
+        console.log(1000 * 60 * 60 * 24 * 365)
+        var sliderTime = d3
+            .sliderBottom()
+            .min(d3.min(dataTime))
+            .max(d3.max(dataTime))
+            .step(60 * 60 * 24 * 365)
+            .width(450)
+            .tickFormat(d3.timeFormat('%m.%Y'))
+            .tickValues(dataTime)
+            // .default(new Date(2020, 1, 1))
+            .on('onchange', val => {
+                changeCSVData(d3.timeFormat('%Y')(val), d3.timeFormat('%m')(val))
+                d3.select('p#value-time').text(d3.timeFormat('%b %Y')(val));
+            });
+
+        var gTime = d3
+            .select('div#slider-time')
+            .append('svg')
+            .attr('width', 500)
+            .attr('height', 100)
+            .append('g')
+            .attr('transform', 'translate(30,30)');
+
+        gTime.call(sliderTime);
+
+        d3.select('p#value-time').text(d3.timeFormat('%b %Y')(sliderTime.value()));
+
+        changeCSVData(2020, 1)
+        function changeCSVData(year, month) {
+            d3.queue()
+                .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
+                .defer(d3.csv, "../data/map_data_str.csv")
+                .await(ready);
+            function ready(error, topo, args) {
+                changeData(error, topo, args, year, parseInt(month.toString()))
+            }
+        }
+
+        function changeData(error, topo, args, yearValue, month) {
+            if (yearValue == null) {
+                yearValue = 2020
+            }
+            if (document.getElementsByClassName("legendEntry")) {
+                const elements = document.getElementsByClassName("legendEntry")
+                while (elements.length > 0) {
+                    elements[0].parentNode.removeChild(elements[0]);
+                }
+            }
+            console.log(args)
+            args = args.filter(d => d.year == yearValue)
+            console.log(args)
+
+            args = args.filter(d => d.month == month)
+            console.log(args)
+
+            args.forEach(d => data.set(d.location, parseInt(d.stringency_index)))
+            console.log(args)
+            // console.log(columnValue, yearValue)
+            // Draw the map
+            // The svg
+            var svg = d3.select("svg#my_dataviz"),
+                width = +svg.attr("width"),
+                height = +svg.attr("height");
+
+            // Map and projection
+            var path = d3.geoPath();
+            var projection = d3.geoMercator()
+                .scale(width / 2.5)                       // This is like the zoom
+                .center([100, 23])                // GPS of location to zoom on
+                .translate([width / 2, height / 2]);
+            // Data and color scale
+            var colorScale = d3.scaleThreshold()
+                .domain(domain)
+                .range(d3.schemeReds[7]);
+
+            var tooltip = d3.select("body")
+                .append("div")
+                .style("position", "absolute")
+                .style("z-index", "10")
+                .style("visibility", "hidden")
+                .style("background-color", "white")
+                .style("box-shadow", "0px 3px 9px rgba(0, 0, 0, .15)")
+                .style("padding", "5px")
+
+            svg.append("g")
+                .selectAll("path")
+                .data(topo.features)
+                .enter()
+                .append("path")
+                // draw each country
+                .attr("d", d3.geoPath()
+                    .projection(projection)
+                )
+                // set the color of each country
+                .attr("fill", function (d) {
+                    d.count = data.get(d.properties.name) || 0;
+                    console.log(d.count)
+                    return colorScale(d.count);
+                })
+                .on("mouseover", function () { return tooltip.style("visibility", "visible"); })
+                .on("mousemove", function (d) {
+                    return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px")
+                        .html((d.properties.name) + "<br><span>" + (d.count));
+                })
+                .on("mouseout", function () {
+                    return tooltip.style("visibility", "hidden");
+                });
+
+
+            var legend = svg.selectAll('rect')
+                .data(domain)
+                .enter()
+                .append('g').attr('class', 'legendEntry');
+
+            legend
+                .append('rect')
+                .attr("x", width - 115)
+                .attr("y", function (d, i) {
+                    return i * 20 + 50;
+                })
+                .attr("width", 10)
+                .attr("height", 10)
+                .style("stroke", "black")
+                .style("stroke-width", 1)
+                .style("fill", function (d) {
+                    return colorScale(d);
+                });
+            //the data objects are the fill colors
+
+            legend
+                .append('text')
+                .attr("x", width - 100) //leave 5 pixel space after the <rect>
+                .attr("y", function (d, i) {
+                    return i * 20 + 50;
+                })
+                .attr("dy", "0.7em") //place text one line *below* the x,y point
+                .text(function (d, i) {
+                    return readablize(domain[i]) + (domain[i + 1] ? ("-" + readablize(domain[i + 1])) : "")
+                });
+
+        }
+        function readablize(number) {
+            var s = ['', 'K', 'M', 'GB', 'TB', 'PB'];
+            if (number > 999) {
+                var e = Math.floor(Math.log(number) / Math.log(1000));
+                return (number / Math.pow(1000, e)) + " " + s[e];
+            } else {
+                return number
+            }
+        }
+    </script>
+</body>
+
+</html>

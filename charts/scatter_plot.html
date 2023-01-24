@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Avatar: Scatter Plot with D3.js</title>
+
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+</head>
+
+<body class="container">
+
+    <div class="back-home"><a href="../assignment_two.html">Back</a></div>
+    <h1 class="graph_center">The Scatter Plot of Tree Size and CO2</h1>
+
+
+    <!-- Create a div where the graph will take place -->
+    <!-- <div class="div_for_light_colors clearfix"> -->
+    <div class="graph_div ">
+        <div id="my_dataviz" style="float: left;"></div>
+        <div id="my_legend"></div>
+    </div>
+
+
+    <script>
+
+        // set the dimensions and margins of the graph
+        const margin = { top: 10, right: 30, bottom: 50, left: 60 },
+            width = 460 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
+
+        var legend_width = 300;
+        var legend_height = 180;
+
+        // var tooltip = d3.select("#my_dataviz")
+        //     .append("div")
+        //     .attr("class", "toolTip")
+        //     .style("display", "none");
+
+        const legend_svg = d3.select("#my_legend")
+            .append("svg")
+            .attr("width", legend_width)
+            .attr("height", legend_height)
+            .append("g")
+
+
+        var tooltip = d3.select("body")
+            .append("div")
+            .style("position", "absolute")
+            .style("z-index", "10")
+            .style("visibility", "hidden")
+            .style("box-shadow", "0px 3px 9px rgba(0, 0, 0, .15)")
+            .style("padding", "5px")
+            .style("background-color", "black")
+            .style("border-radius", "5px")
+            .style("padding", "10px")
+            .style("color", "white")
+
+        d3.csv("../data/scatter_data.csv", function (data) {
+            var result = data.reduce(function (r, a) {
+                r[a.Regional_indicator] = r[a.Regional_indicator] || [];
+                r[a.Regional_indicator].push(a);
+                return r;
+            }, Object.create(null));
+            console.log(result)
+            var GroupbyRegionalIndicator = Object.keys(result).map((key) => [key, result[key]]);
+
+            // console.log(res)
+            console.log(GroupbyRegionalIndicator)
+
+            var TotalRegionalIndicator = GroupbyRegionalIndicator.map((d, i) => ({ region: d[1][0].region, value: d[0] }));
+            console.log(TotalRegionalIndicator)
+            // Color scale: takes treetype name and return a color
+            var mycolors = ['#66976B', '#1D382B', '#D68C2C', '#A54A2B',
+                '#C7A98C', '#53070D', '#F4A6B3', '#B7264A', '#C5BE6A',
+                '#364277', '#8FBFCC', '#226D7B', '#002E6B'];
+
+            var min_maxval = function (colname) { return d3.extent(data, d => +d[colname]); };
+            var x_axis_col_lst = 'Population ages 65 and above (% of total)';
+            var y_axis_col_lst = 'COVID-19 Cases (% of total)';
+
+            // Highlight the specie that is hovered
+            var highlight = function (d) {
+                console.log(d)
+                selected_region_key = d.region
+                d3.selectAll(".dot")
+                    .transition()
+                    .duration(200)
+                    .style("fill", "lightgrey")
+                    .attr("r", 3)
+
+                d3.selectAll("." + selected_region_key)
+                    .transition()
+                    .duration(200)
+                    .style("fill", color(selected_region_key))
+                    .attr("r", 7)
+            }
+            var showTooltip = function (d) {
+                selected_region_key = d.region
+                d3.selectAll(".dot")
+                    .transition()
+                    .duration(200)
+                    .style("fill", "lightgrey")
+                    .attr("r", 3)
+
+                d3.selectAll("." + selected_region_key)
+                    .transition()
+                    .duration(200)
+                    .style("fill", color(selected_region_key))
+                    .attr("r", 7)
+                tooltip
+                    .style("visibility", "visible")
+                tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px")
+                    .html((d.location) + "<br><span>" + "Total cases:  " + (parseInt(d.total_cases) + "<br><span>" + "population: " + (d.population) + "<br> aged 65 and older: " + d.aged_65_older));
+
+            }
+            var moveTooltip = function (d) {
+                tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px")
+                    .html((d.location) + "<br><span>" + "Total cases:  " + (parseInt(d.total_cases) + "<br><span>" + "population: " + (d.population) + "<br> aged 65 and older: " + d.aged_65_older));
+
+            }
+
+
+            // Highlight the treetype that is hovered
+            const doNotHighlight = function (d) {
+                d3.selectAll(".dot")
+                    .transition()
+                    .duration(200)
+                    .style("fill", d => color(d.region))
+                    .attr("r", 3);
+
+                // tooltip.style("display", "none");
+            }
+            const hideTooltip = function (d) {
+                tooltip
+                    .style("visibility", "hidden");
+            }
+
+            // select color for each tree type
+            const color = d3.scaleOrdinal()
+                .domain(TotalRegionalIndicator)
+                .range(mycolors)
+            // .range(d3.schemeSet2);
+
+            // ----------------------------------------------------------------------------------------
+
+            // Add a legend(interactive)
+
+            legend_svg.selectAll("mycircles")
+                .data(TotalRegionalIndicator)
+                .enter()
+                .append("circle")
+                .attr("cx", margin.left)
+                .attr("cy", function (d, i) { return 20 + i * 25 })
+                .attr("r", 7)
+                .style("fill", function (d) { return color(d.region) })
+                .on("mouseover", highlight)
+                .on("mouseleave", doNotHighlight)
+
+            // Add labels beside legend dots
+            legend_svg.selectAll("mylabels")
+                .data(TotalRegionalIndicator)
+                .enter()
+                .append("text")
+                .attr("x", margin.left + 16)
+                .attr("y", function (d, i) { return 20 + i * 25 })
+                .style("fill", function (d) { return color(d.region) })
+                .text(function (d) { return d.value })
+                .attr("text-anchor", "left")
+                .style("alignment-baseline", "middle")
+                .on("mouseover", highlight)
+                .on("mouseleave", doNotHighlight);
+
+            // ------------------------------------------------------------------------------------------
+
+
+            let xVar = "aged_65_older";
+            let yVar = "total_cases_share";
+            // d3.select("#scatter_graph").remove()
+
+            draw_graph(xVar, yVar);
+
+            function draw_graph(xVar, yVar) {
+
+                // append the svg object to the body of the page
+                const svg = d3.select("#my_dataviz")
+                    .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .attr("id", "scatter_graph")
+                    .append("g")
+                    .attr("transform",
+                        `translate(${margin.left}, ${margin.top})`);
+
+                // Add X axis
+                const x = d3.scaleLinear()
+                    .domain([0, min_maxval(xVar)[1]])
+                    .range([0, width]);
+                svg.append("g")
+                    .attr("transform", `translate(0, ${height})`)
+                    .call(d3.axisBottom(x));
+
+                // Add Y axis
+                const y = d3.scaleLinear()
+                    .domain([0, min_maxval(yVar)[1]])
+                    .range([height, 0]);
+                svg.append("g")
+                    .call(d3.axisLeft(y));
+
+                // Add X axis label:
+                svg.append("text")
+                    .attr("text-anchor", "end")
+                    .attr("x", width-100 + margin.left)
+                    .attr("y", height + margin.bottom - 15)
+                    // .style("fill", "white")
+                    .text("Population ages 65 and above (% of total)");
+
+                // Y axis label:
+                svg.append("text")
+                    .attr("text-anchor", "end")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", -margin.left + 30)
+                    .attr("x", -margin.top - (height /6))
+                    // .style("fill", "beige")
+                    .text("COVID cases confirmed (% of total population)");
+
+                // Add dots
+                svg.append('g')
+                    .selectAll("dot")
+                    .data(data)
+                    .enter()
+                    .append("circle")
+                    .attr("class", function (d) { return "dot " + d.region })
+                    .attr("cx", function (d) { return x(+d[xVar]); })
+                    .attr("cy", function (d) { return y(+d[yVar]); })
+                    .attr("r", 4)
+                    .style("fill", function (d) { return color(d.region) })
+                    .on("mouseover", showTooltip)
+                    .on("mouseleave", moveTooltip)
+                    .on("mouseout", hideTooltip);
+
+            }
+
+
+
+
+        })
+    </script>
+
+</body>
+
+</html>

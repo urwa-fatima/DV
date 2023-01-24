@@ -1,0 +1,225 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Avatar: Bubble Chart with D3.js</title>
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <style>
+        .bubbles {
+            stroke-width: 2px;
+            stroke: white;
+        }
+
+        .bubbles:hover {
+            stroke: black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bubble Charts</h1>
+
+    <!-- Create a div where the graph will take place -->
+    <div class="graph_div ">
+
+        <div id="my_dataviz" style="float: left;"></div>
+        <div id="my_legend"></div>
+
+    </div>
+
+    <script>
+
+        // set the dimensions and margins of the graph
+        const margin = { top: 80, right: 30, bottom: 30, left: 200 },
+            width = 1200 - margin.left - margin.right,
+            height = 800 - margin.top - margin.bottom;
+        chartWidth = 600;
+        chartHeight = 600;
+
+
+
+
+        // append the svg object to the body of the page
+        var svg = d3.select("#my_dataviz")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform",
+                "translate(" + margin.left + "," + margin.top + ")");
+
+        //Read the data
+        d3.csv("../data/buble_data.csv", function (data) {
+
+            // console.log(data)
+            var result = data.reduce(function (r, a) {
+                r[a.Regional_indicator] = r[a.Regional_indicator] || [];
+                r[a.Regional_indicator].push(a);
+                return r;
+            }, Object.create(null));
+            // console.log(result)
+            var GroupbyRegionalIndicator = Object.keys(result).map((key) => [key, result[key]]);
+
+            // console.log(res)
+            // console.log(GroupbyRegionalIndicator)
+
+            var TotalRegionalIndicator = GroupbyRegionalIndicator.map((d, i) => ({ region: d[1][0].region, value: d[0] }));
+            // console.log(TotalRegionalIndicator)
+            var mycolors = ["#a5a5a5", "#ffc000", "#5b9bd5", "#ed7d31",
+
+                '#364277', '#8FBFCC', '#226D7B', '#002E6B'];
+            const color = d3.scaleOrdinal()
+                .domain(TotalRegionalIndicator)
+                .range(mycolors)
+
+            // Highlight the specie that is hovered
+            var highlight = function (d) {
+                console.log(d)
+                selected_region_key = d.region
+                d3.selectAll(".bubbles")
+                    .transition()
+                    .duration(200)
+                    .style("fill", "lightgrey")
+                // .attr("r", 3)
+
+                d3.selectAll("." + selected_region_key)
+                    .transition()
+                    .duration(200)
+                    .style("fill", color(selected_region_key))
+                // .attr("r", 7)
+            }
+            // Highlight the treetype that is hovered
+            const doNotHighlight = function (d) {
+                d3.selectAll(".bubbles")
+                    .transition()
+                    .duration(200)
+                    .style("fill", d => color(d.region))
+                // .attr("r", 3);
+            }
+            // Add a legend(interactive)
+
+            svg.selectAll("myrect")
+                .data(TotalRegionalIndicator)
+                .enter()
+                .append("circle")
+                .attr("cx", margin.left + 450)
+                .attr("cy", function (d, i) { return 20 + i * 25 })
+                .attr("r", 7)
+                .style("fill", function (d) { return color(d.region) })
+                .on("mouseover", highlight)
+                .on("mouseleave", doNotHighlight)
+
+            // Add labels beside legend dots
+            svg.selectAll("mylabels")
+                .data(TotalRegionalIndicator)
+                .enter()
+                .append("text")
+                .attr("x", margin.left + 466)
+                .attr("y", function (d, i) { return 20 + i * 25 })
+                .style("fill", function (d) { return color(d.region) })
+                .text(function (d) { return d.value })
+                .attr("text-anchor", "left")
+                .style("alignment-baseline", "middle")
+                .on("mouseover", highlight)
+                .on("mouseleave", doNotHighlight);
+            // console.log(data)
+            // Add a legend(interactive)
+
+
+
+            // ------------------------------------------------------------------------------------------
+
+
+            const x = d3.scaleLinear()
+                .domain([0, 0.5])
+                .range([0, chartWidth]);
+            svg.append("g")
+                .attr("transform", "translate(0," + chartHeight + ")")
+                .call(d3.axisBottom(x));
+
+            svg.append("text")
+                .attr("text-anchor", "end")
+
+                .attr("x", chartWidth - 200)
+                .attr("y", chartHeight + 50)
+                .text("Total Deaths/population (%)");
+
+
+            // Add Y axis
+            var y = d3.scaleLinear()
+                .domain([0, 65])
+                .range([chartHeight, 0]);
+            svg.append("g")
+                .call(d3.axisLeft(y));
+
+            svg.append("text")
+                .attr("text-anchor", "end")
+
+                .attr("x", 0)
+                .attr("y", -20)
+                .text("Total Cases/population (%)")
+                .attr("text-anchor", "start")
+
+            // Add a scale for bubble size
+            var z = d3.scaleLinear()
+                .domain([1, 105])
+                .range([1, 30]);
+            var tooltip = d3.select("body")
+                .append("div")
+                .style("position", "absolute")
+                .style("z-index", "10")
+                .style("visibility", "hidden")
+                .style("box-shadow", "0px 3px 9px rgba(0, 0, 0, .15)")
+                .style("padding", "5px")
+                .style("background-color", "black")
+                .style("border-radius", "5px")
+                .style("padding", "10px")
+                .style("color", "white")
+
+            // // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
+            var showTooltip = function (d) {
+                console.log(d)
+                tooltip
+                    .style("visibility", "visible")
+            }
+            var moveTooltip = function (d) {
+                tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px")
+                    .html((d.location) + "<br><span>" + "percentage total vaccinations: " + (parseInt(d.ratio_total_vaccinations) + "%"));
+            }
+            var hideTooltip = function (d) {
+                tooltip
+                    .style("visibility", "hidden");
+            }
+            // Add dots
+            svg.append('g')
+                .selectAll("dot")
+                .data(data)
+                .enter()
+                .append("circle")
+                // .attr("class", "bubbles")
+                .attr("class", function (d) { return "bubbles " + d.region })
+
+                .attr("cx", function (d) { return x(parseFloat(d.ratio_total_deaths)); })
+                .attr("cy", function (d) { return y(parseInt(d.ratio_total_cases)); })
+                .attr("r", function (d) { return z(parseFloat(d.ratio_total_vaccinations)); })
+                .style("fill", function (d) { return color(d.region); })
+                .style("opacity", "0.7")
+                .attr("stroke", "black")
+                .on("mouseover", showTooltip)
+                .on("mousemove", moveTooltip)
+                .on("mouseout", hideTooltip);
+
+
+
+        })
+    </script>
+
+
+
+</body>
+
+</html>
