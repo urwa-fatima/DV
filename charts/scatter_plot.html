@@ -9,6 +9,8 @@
 
     <!-- Load d3.js -->
     <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
 </head>
 
@@ -60,7 +62,7 @@
             .style("padding", "10px")
             .style("color", "white")
 
-        d3.csv("../data/scatter_data.csv", function (data) {
+        d3.csv("DV/data/scatter_data.csv", function (data) {
             var result = data.reduce(function (r, a) {
                 r[a.Regional_indicator] = r[a.Regional_indicator] || [];
                 r[a.Regional_indicator].push(a);
@@ -75,9 +77,6 @@
             var TotalRegionalIndicator = GroupbyRegionalIndicator.map((d, i) => ({ region: d[1][0].region, value: d[0] }));
             console.log(TotalRegionalIndicator)
             // Color scale: takes treetype name and return a color
-            var mycolors = ['#66976B', '#1D382B', '#D68C2C', '#A54A2B',
-                '#C7A98C', '#53070D', '#F4A6B3', '#B7264A', '#C5BE6A',
-                '#364277', '#8FBFCC', '#226D7B', '#002E6B'];
 
             var min_maxval = function (colname) { return d3.extent(data, d => +d[colname]); };
             var x_axis_col_lst = 'Population ages 65 and above (% of total)';
@@ -143,7 +142,7 @@
             // select color for each tree type
             const color = d3.scaleOrdinal()
                 .domain(TotalRegionalIndicator)
-                .range(mycolors)
+                .range(d3.schemeSet1)
             // .range(d3.schemeSet2);
 
             // ----------------------------------------------------------------------------------------
@@ -214,7 +213,7 @@
                 // Add X axis label:
                 svg.append("text")
                     .attr("text-anchor", "end")
-                    .attr("x", width-100 + margin.left)
+                    .attr("x", width - 100 + margin.left)
                     .attr("y", height + margin.bottom - 15)
                     // .style("fill", "white")
                     .text("Population ages 65 and above (% of total)");
@@ -224,7 +223,7 @@
                     .attr("text-anchor", "end")
                     .attr("transform", "rotate(-90)")
                     .attr("y", -margin.left + 30)
-                    .attr("x", -margin.top - (height /6))
+                    .attr("x", -margin.top - (height / 6))
                     // .style("fill", "beige")
                     .text("COVID cases confirmed (% of total population)");
 
