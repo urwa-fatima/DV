@@ -62,7 +62,7 @@
             .style("padding", "10px")
             .style("color", "white")
 
-        d3.csv("DV/data/scatter_data.csv", function (data) {
+        d3.csv("./DV/data/scatter_data.csv", function (data) {
             var result = data.reduce(function (r, a) {
                 r[a.Regional_indicator] = r[a.Regional_indicator] || [];
                 r[a.Regional_indicator].push(a);
