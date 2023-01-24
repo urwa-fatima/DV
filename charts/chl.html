@@ -120,7 +120,7 @@
 
             d3.queue()
                 .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-                .defer(d3.csv, "/DV/data/map_data.csv")
+                .defer(d3.csv, "./DV/data/map_data.csv")
                 .await(ready);
             function ready(error, topo, args) {
                 changeData(error, topo, args, columnValue, year, parseInt(month.toString()))
