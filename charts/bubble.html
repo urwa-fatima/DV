@@ -7,7 +7,8 @@
     <title>Group Avatar: Bubble Chart with D3.js</title>
     <!-- Load d3.js -->
     <script src="https://d3js.org/d3.v4.js"></script>
-    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/style-custom.css">
     <style>
         .bubbles {
             stroke-width: 2px;
@@ -20,18 +21,22 @@
     </style>
 </head>
 
-<body>
+<body class="page-body">
     <h1>Bubble Charts</h1>
 
     <!-- Create a div where the graph will take place -->
-    <div class="graph_div ">
+    <div class="graph_div">
 
-        <div id="my_dataviz" style="float: left;"></div>
+        <!-- <div id="my_dataviz" style="float: left;"></div> -->
+        <div class="svg-container align-items-center" id="bubble_chart" style="float: left;">
+        </div>
+        <script src="../js/bubble-chart.js"></script>
         <div id="my_legend"></div>
 
     </div>
 
-    <script>
+
+    <!-- <script>
 
         // set the dimensions and margins of the graph
         const margin = { top: 80, right: 30, bottom: 30, left: 200 },
@@ -216,7 +221,7 @@
 
 
         })
-    </script>
+    </script> -->
 
 
 

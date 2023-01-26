@@ -85,11 +85,11 @@
         d3.select('p#value-time').text(d3.timeFormat('%b %Y')(sliderTime.value()));
 
         changeCSVData(2020, 1)
-        console.log("/DV/data/map_data_str.csv")
+        console.log("../data/map_data_str.csv")
         function changeCSVData(year, month) {
             d3.queue()
                 .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-                .defer(d3.csv, "/DV/data/map_data_str.csv")
+                .defer(d3.csv, "../data/map_data_str.csv")
                 .await(ready);
             function ready(error, topo, args) {
                 changeData(error, topo, args, year, parseInt(month.toString()))
