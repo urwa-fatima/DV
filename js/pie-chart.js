@@ -18,6 +18,7 @@ function pie_chart(selection, props) {
     } = props;
 
     var radius = Math.min(width, height) / 2 - margin.left - margin.right;
+    var inner_radius = Math.min(width, height) / 3 - margin.left - margin.right;
 
     let svg = selection.selectAll('svg').data([null]);
 
@@ -40,19 +41,35 @@ function pie_chart(selection, props) {
         .attr("transform", "translate(" + Math.min(width, height) / 2 + "," + Math.min(width, height) / 2 + ")");
 
 
+    //GROUP FOR LABELS
+    let label_g = svg.selectAll('.label_group').data([null]);
+
+    label_g = label_g
+        .enter()
+        .append("g")
+        .merge(label_g)
+        .attr("class", "label_group")
+        .attr("transform", "translate(" + (Math.min(width, height) / 2) + "," + (Math.min(width, height) / 2) + ")");
+
+
     //CSV Data
     d3.csv("./data/world_total_death_pie_data.csv").then(function (data) {
 
         console.log(data);
+        data.sort(function (a, b) {
+            return b.total_no_deaths - a.total_no_deaths;
+        });
 
         //color 
         // var colorList = ["#26265C", "#32327A", "#5454CC",
         //     "#6969FF", "#8E8EFF", "#B4B4FF"];
 
-        var mycolors = ["#26265C", '#1D382B', '#D68C2C', '#1F1F1F',
-            '#53070D', '#B7264A', '#66976B', '#A54A2B',
-            '#C7A98C', '#F4A6B3', '#C5BE6A',
-            '#364277', '#8FBFCC', '#226D7B', '#002E6B'];
+        var mycolors = ["#26265C", "#32327A", "#5454CC", "#6969FF", "#8E8EFF"]
+
+        // var mycolors = ["#26265C", '#1D382B', '#D68C2C', '#1F1F1F',
+        //     '#53070D', '#B7264A', '#66976B', '#A54A2B',
+        //     '#C7A98C', '#F4A6B3', '#C5BE6A',
+        //     '#364277', '#8FBFCC', '#226D7B', '#002E6B'];
 
 
         const color = d3.scaleOrdinal()
@@ -67,26 +84,17 @@ function pie_chart(selection, props) {
             .sort(null);
 
         const data_ready = pie.value(d => d.percentage)(data)
-            .sort(function (a, b) { return d3.descending(a.value, b.value); });
+        // .sort(function (a, b) { return d3.descending(a.value, b.value); });
         // Now I know that group A goes from 0 degrees to x degrees and so on.
 
         // shape helper to build arcs:
         const arcGenerator = d3.arc()
-            .innerRadius(0)
+            .innerRadius(inner_radius)
             .outerRadius(radius)
 
         var formatDecimal = d3.format(",.2f");
 
         // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-
-        // var paths = svg.selectAll('mySlices').data([null]);
-        // paths = paths
-        //     .enter()
-
-        // g.selectAll("path").remove();
-        // g.selectAll("text").remove();
-
-        // let paths = g.selectAll('mySlices').data([null]);
 
         // paths = paths
         g.selectAll('mySlices')
@@ -107,18 +115,71 @@ function pie_chart(selection, props) {
             .style("stroke-width", "1px")
             .style("opacity", 1);
 
-        // Now add the annotation. Use the centroid method to get the best coordinates
-        g.selectAll('mySlices')
+        //Now add the annotation. Use the centroid method to get the best coordinates
+        label_g.selectAll('mySlices')
             .data(data_ready)
             .join('text')
-            .text(function (d) { return d.data.continent + " " + formatDecimal(d.value) + "%" })
-            .attr("transform", function (d) { return `translate(${arcGenerator.centroid(d)})` })
+            .attr("dy", 0)
+            .text(function (d) { return d.data.continent + " " + formatDecimal(d.value) + "%" }).call(wrap, 50, 0.8)
+            .attr("transform", function (d) {
+
+                if (d.value < 3) {
+                    return `translate(${arcGenerator.centroid(d)[0]},${arcGenerator.centroid(d)[1] - 40})`
+                }
+                if (d.value < 5) {
+                    return `translate(${arcGenerator.centroid(d)[0]},${arcGenerator.centroid(d)[1] + 20})`
+                }
+                else {
+                    return `translate(${arcGenerator.centroid(d)})`
+                }
+            })
             .style("text-anchor", "middle")
             .style("fill", "#E0E0E0")
             .style("font-size", "1em")
 
-        // close of Data function from csv
+        var sum = d3.sum(data, function (d) {
+            return +d.total_no_deaths;
+        });
+
+        label_g.append("text")
+            .attr('y', -inner_radius + (inner_radius - 20))
+            .attr("dy", 0)
+            .text("Total Deaths " + "in World Due to COVID-19: ").call(wrap, 120, 1.3)
+            .style("text-anchor", "middle")
+            .style("fill", "#635f5d")
+            .style("font-size", "1em")
+            .style("fill", "#635f5d")
+            .style("font-size", "1em")
+            .append("tspan").text(" " + sum)
+            .style("text-anchor", "middle")
+            .style("font-weight", 800)
+
+
     });
+
+    function wrap(text, width, lineH) {
+        text.each(function () {
+            var text = d3.select(this),
+                words = text.text().split(/\s+/).reverse(),
+                word,
+                line = [],
+                lineNumber = 0,
+                lineHeight = +lineH, // ems
+                y = text.attr("y"),
+                dy = parseFloat(text.attr("dy")),
+                tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+            while (word = words.pop()) {
+                line.push(word);
+                tspan.text(line.join(" "));
+                if (tspan.node().getComputedTextLength() > width) {
+                    line.pop();
+                    tspan.text(line.join(" "));
+                    line = [word];
+                    tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                }
+            }
+        });
+    }
 
 
 }
