@@ -11,8 +11,8 @@ window.onload = function () {
             yAxisLabelOffset: -50,
             xAxisTickFontSize: '12px',
             yAxisTickFontSize: '12px',
-            xAxisLabelFontSize: '16px',
-            yAxisLabelFontSize: '16px',
+            xAxisLabelFontSize: '1.3em',
+            yAxisLabelFontSize: '1.3em',
             xAxisTickFontFill: '#8E8883',
             yAxisTickFontFill: '#8E8883',
             xAxisTickLineStroke: '#C0C0BB',
@@ -20,15 +20,17 @@ window.onload = function () {
             xAxisDomainLineStroke: '#C0C0BB',
             yAxisDomainLineStroke: '#C0C0BB',
             xAxisTickDensity: 70, // pixels per tick
-            yAxisTickDensity: 70 // pixels per tick
+            yAxisTickDensity: 70, // pixels per tick
+            legendFontSize: '0.8em',
+            legendFontFill: '#8E8883'
         };
         const divID = d3.select('#' + divId);
         var width = divID.node().getBoundingClientRect().width;
         // console.log(width)
         bubble_chart(divID, Object.assign({}, myTheme, {
             width: divID.node().getBoundingClientRect().width,
-            height: width / 1.5,
-            margin: { top: 20, bottom: 100, left: 100, right: 20 }
+            height: width / 2,
+            margin: { top: 20, bottom: 100, left: 100, right: 300 }
         }));
 
     }
@@ -56,44 +58,45 @@ window.onload = function () {
 
         //Y Axis
         const yScale = d3.scaleLinear()
-            .domain([0, 1])
+            .domain([0, 70])
             .range([innerheight, 0]);
 
-        labeledYAxis(g, Object.assign({}, props, { yScale, innerheight }));
+        labeledYAxis(g, Object.assign({}, props, { yScale, innerheight, yLabelText: "Total Cases/Population (%)" }));
 
 
         //X Axis
         const xScale = d3.scaleLinear()
-            .domain([0, 1])
+            .domain([0, 0.5])
             .range([0, innerwidth]);
 
-        labeledXAxis(g, Object.assign({}, props, { xScale, innerwidth, innerheight }));
+        labeledXAxis(g, Object.assign({}, props, { xScale, innerwidth, innerheight, xLabelText: "Total Deaths/Population (%)" }));
 
+        // Z Axis
+        // Add a scale for bubble size
+        var z = d3.scaleLinear()
+            .domain([1, 105])
+            .range([1, 30]);
 
-        d3.csv("../data/buble_data.csv", function (data) {
+        d3.csv("../data/bubble_data.csv", function (data) {
 
-            // console.log(data)
+            console.log(data)
             var result = data.reduce(function (r, a) {
                 r[a.Regional_indicator] = r[a.Regional_indicator] || [];
                 r[a.Regional_indicator].push(a);
                 return r;
             }, Object.create(null));
-            // console.log(result)
+
             var GroupbyRegionalIndicator = Object.keys(result).map((key) => [key, result[key]]);
 
-            // console.log(res)
-            // console.log(GroupbyRegionalIndicator)
-
             var TotalRegionalIndicator = GroupbyRegionalIndicator.map((d, i) => ({ region: d[1][0].region, value: d[0] }));
-            // console.log(TotalRegionalIndicator)
-            var mycolors = ["#a5a5a5", "#ffc000", "#5b9bd5", "#ed7d31",
 
-                '#364277', '#8FBFCC', '#226D7B', '#002E6B'];
+            // console.log(TotalRegionalIndicator)
+            var mycolors = ["#a5a5a5", "#ffc000", "#5b9bd5", "#ed7d31", '#364277', '#8FBFCC', '#226D7B', '#002E6B'];
             const color = d3.scaleOrdinal()
                 .domain(TotalRegionalIndicator)
                 .range(mycolors)
 
-            // Highlight the specie that is hovered
+            // Highlight the group that is hovered
             var highlight = function (d) {
                 console.log(d)
                 selected_region_key = d.region
@@ -103,13 +106,13 @@ window.onload = function () {
                     .style("fill", "lightgrey")
                 // .attr("r", 3)
 
-                d3.selectAll("." + selected_region_key)
+                d3.selectAll("." + selected_region_key).raise()
                     .transition()
                     .duration(200)
                     .style("fill", color(selected_region_key))
                 // .attr("r", 7)
             }
-            // Highlight the treetype that is hovered
+            // Highlight the type that is hovered
             const doNotHighlight = function (d) {
                 d3.selectAll(".bubbles")
                     .transition()
@@ -117,74 +120,35 @@ window.onload = function () {
                     .style("fill", d => color(d.region))
                 // .attr("r", 3);
             }
+
             // Add a legend(interactive)
 
-            svg.selectAll("myrect")
-                .data(TotalRegionalIndicator)
-                .enter()
-                .append("circle")
-                .attr("cx", margin.left + 450)
-                .attr("cy", function (d, i) { return 20 + i * 25 })
-                .attr("r", 7)
-                .style("fill", function (d) { return color(d.region) })
-                .on("mouseover", highlight)
-                .on("mouseleave", doNotHighlight)
+            var legWidth = 300, legHeight = 180, legMargin = { top: 5, bottom: 5, left: 5, right: 5 };
 
-            // Add labels beside legend dots
-            svg.selectAll("mylabels")
-                .data(TotalRegionalIndicator)
+            let legend_label = svg.selectAll('.label_group').data([null]);
+            legend_label = legend_label
                 .enter()
-                .append("text")
-                .attr("x", margin.left + 466)
-                .attr("y", function (d, i) { return 20 + i * 25 })
-                .style("fill", function (d) { return color(d.region) })
-                .text(function (d) { return d.value })
-                .attr("text-anchor", "left")
-                .style("alignment-baseline", "middle")
-                .on("mouseover", highlight)
-                .on("mouseleave", doNotHighlight);
-            // console.log(data)
-            // Add a legend(interactive)
+                .append("g")
+                .merge(legend_label)
+                .attr("class", "label_group")
+                .attr("transform", `translate(${width - margin.right} , 0)`);
 
+            legendConvention(legend_label, Object.assign({}, props, {
+                csvData: TotalRegionalIndicator,
+                width: legWidth,
+                height: legHeight,
+                margin: legMargin,
+                legColor: color,
+                funcOnHover: highlight,
+                funcNoHover: doNotHighlight,
+                className: "legend-group"
+            }))
 
 
             // ------------------------------------------------------------------------------------------
 
 
-            const x = d3.scaleLinear()
-                .domain([0, 0.5])
-                .range([0, innerwidth]);
-            svg.append("g")
-                .attr("transform", "translate(0," + innerheight + ")")
-                .call(d3.axisBottom(x));
 
-            svg.append("text")
-                .attr("text-anchor", "end")
-
-                .attr("x", innerwidth - 200)
-                .attr("y", innerheight + 50)
-                .text("Total Deaths/population (%)");
-
-
-            // Add Y axis
-            var y = d3.scaleLinear()
-                .domain([0, 65])
-                .range([chartHeight, 0]);
-            svg.append("g")
-                .call(d3.axisLeft(y));
-
-            svg.append("text")
-                .attr("text-anchor", "end")
-
-                .attr("x", 0)
-                .attr("y", -20)
-                .text("Total Cases/population (%)")
-                .attr("text-anchor", "start")
-
-            // Add a scale for bubble size
-            var z = d3.scaleLinear()
-                .domain([1, 105])
-                .range([1, 30]);
             var tooltip = d3.select("body")
                 .append("div")
                 .style("position", "absolute")
@@ -192,10 +156,10 @@ window.onload = function () {
                 .style("visibility", "hidden")
                 .style("box-shadow", "0px 3px 9px rgba(0, 0, 0, .15)")
                 .style("padding", "5px")
-                .style("background-color", "black")
+                .style("background-color", "#E5E2E0")
                 .style("border-radius", "5px")
                 .style("padding", "10px")
-                .style("color", "white")
+                .style("color", "#635F5D")
 
             // // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
             var showTooltip = function (d) {
@@ -203,7 +167,7 @@ window.onload = function () {
                 tooltip
                     .style("visibility", "visible")
             }
-            var moveTooltip = function (d) {
+            var moveTooltip = function (d, event) {
                 tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px")
                     .html((d.location) + "<br><span>" + "percentage total vaccinations: " + (parseInt(d.ratio_total_vaccinations) + "%"));
             }
@@ -212,7 +176,7 @@ window.onload = function () {
                     .style("visibility", "hidden");
             }
             // Add dots
-            svg.append('g')
+            g.append('g')
                 .selectAll("dot")
                 .data(data)
                 .enter()
@@ -220,8 +184,8 @@ window.onload = function () {
                 // .attr("class", "bubbles")
                 .attr("class", function (d) { return "bubbles " + d.region })
 
-                .attr("cx", function (d) { return x(parseFloat(d.ratio_total_deaths)); })
-                .attr("cy", function (d) { return y(parseInt(d.ratio_total_cases)); })
+                .attr("cx", function (d) { return xScale(parseFloat(d.ratio_total_deaths)); })
+                .attr("cy", function (d) { return yScale(parseInt(d.ratio_total_cases)); })
                 .attr("r", function (d) { return z(parseFloat(d.ratio_total_vaccinations)); })
                 .style("fill", function (d) { return color(d.region); })
                 .style("opacity", "0.7")
@@ -233,87 +197,6 @@ window.onload = function () {
 
 
         });
-
-        // //CSV Data
-        // d3.csv("./data/world_total_death_pie_data.csv").then(function (data) {
-
-        //     console.log(data);
-
-        //     //color 
-        //     // var colorList = ["#26265C", "#32327A", "#5454CC",
-        //     //     "#6969FF", "#8E8EFF", "#B4B4FF"];
-
-        //     var mycolors = ["#26265C", '#1D382B', '#D68C2C', '#1F1F1F',
-        //         '#53070D', '#B7264A', '#66976B', '#A54A2B',
-        //         '#C7A98C', '#F4A6B3', '#C5BE6A',
-        //         '#364277', '#8FBFCC', '#226D7B', '#002E6B'];
-
-
-        //     const color = d3.scaleOrdinal()
-        //         .range(mycolors);
-
-        //     var colorScale = d3.scaleThreshold()
-        //         .domain([0, 2, 19, 22, 23, 25])
-        //         .range(mycolors);
-
-        //     // Compute the position of each group on the pie:
-        //     const pie = d3.pie()
-        //         .sort(null);
-
-        //     const data_ready = pie.value(d => d.percentage)(data)
-        //         .sort(function (a, b) { return d3.descending(a.value, b.value); });
-        //     // Now I know that group A goes from 0 degrees to x degrees and so on.
-
-        //     // shape helper to build arcs:
-        //     const arcGenerator = d3.arc()
-        //         .innerRadius(0)
-        //         .outerRadius(radius)
-
-        //     var formatDecimal = d3.format(",.2f");
-
-        //     // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-
-        //     // var paths = svg.selectAll('mySlices').data([null]);
-        //     // paths = paths
-        //     //     .enter()
-
-        //     // g.selectAll("path").remove();
-        //     // g.selectAll("text").remove();
-
-        //     // let paths = g.selectAll('mySlices').data([null]);
-
-        //     // paths = paths
-        //     g.selectAll('mySlices')
-        //         .data(data_ready)
-        //         .join('path')
-        //         .attr('d', arcGenerator)
-        //         .attr('fill', function (d) {
-        //             if (d.data.continent == "Asia") {
-        //                 return ("#FF1D33")
-
-        //             } else {
-        //                 return (color(d.value))
-        //                 // return (colorScale(d.value))
-
-        //             }
-        //         })
-        //         .attr("stroke", "#E0E0E0")
-        //         .style("stroke-width", "1px")
-        //         .style("opacity", 1);
-
-        //     // Now add the annotation. Use the centroid method to get the best coordinates
-        //     g.selectAll('mySlices')
-        //         .data(data_ready)
-        //         .join('text')
-        //         .text(function (d) { return d.data.continent + " " + formatDecimal(d.value) + "%" })
-        //         .attr("transform", function (d) { return `translate(${arcGenerator.centroid(d)})` })
-        //         .style("text-anchor", "middle")
-        //         .style("fill", "#E0E0E0")
-        //         .style("font-size", "1em")
-
-        //     // close of Data function from csv
-        // });
-
 
     };
     function marginConvention(selection, props) {
@@ -342,7 +225,8 @@ window.onload = function () {
             yAxisTickFontFill,
             yAxisTickLineStroke,
             yAxisDomainLineStroke,
-            yAxisTickDensity } = props;
+            yAxisTickDensity,
+            yLabelText } = props;
 
         // Y axis 
         const yAxis = d3.axisLeft(yScale)
@@ -367,9 +251,9 @@ window.onload = function () {
             .attr('class', "yaxis-label")
             .merge(yAxisLabel)
             .attr('fill', axisLabelFill)
-            .text('Y Axis')
+            .text(yLabelText)
             .attr('transform', 'rotate(-90)')
-            .attr('x', -innerheight / 2)
+            .attr('x', -innerheight / 4.5)
             .attr('y', yAxisLabelOffset)
             .style('font-size', yAxisLabelFontSize);
     }
@@ -387,7 +271,8 @@ window.onload = function () {
             xAxisTickFontFill,
             xAxisTickLineStroke,
             xAxisDomainLineStroke,
-            xAxisTickDensity } = props;
+            xAxisTickDensity,
+            xLabelText } = props;
 
 
         const xAxis = d3.axisBottom(xScale)
@@ -416,12 +301,86 @@ window.onload = function () {
             .attr('class', "xaxis-label")
             .merge(xAxisLabel)
             .attr('fill', axisLabelFill)
-            .text('X Axis')
+            .text(xLabelText)
             .attr('x', innerwidth / 2)
             .attr('y', xAxisLabelOffset)
             .style('font-size', xAxisLabelFontSize);
 
 
     }
+
+    function wrap(text, width, lineH) {
+        text.each(function () {
+            var text = d3.select(this),
+                words = text.text().split(/\s+/).reverse(),
+                word,
+                line = [],
+                lineNumber = 0,
+                lineHeight = +lineH, // ems
+                y = text.attr("y"),
+                dy = parseFloat(text.attr("dy")),
+                tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+            while (word = words.pop()) {
+                line.push(word);
+                tspan.text(line.join(" "));
+                if (tspan.node().getComputedTextLength() > width) {
+                    line.pop();
+                    tspan.text(line.join(" "));
+                    line = [word];
+                    tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                }
+            }
+        });
+    }
+
+    function legendConvention(selection, props) {
+        const { csvData, width,
+            height,
+            margin,
+            legendFontSize,
+            legColor,
+            funcOnHover,
+            funcNoHover,
+            className = "legend-group" } = props;
+        let g = selection
+            .selectAll('.' + className).data([null]);
+        g = g.enter().append('g')
+            .attr('class', className)
+            .merge(g)
+            .attr('width', width)
+            .attr('height', height)
+            .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+        // circles
+        g.selectAll("mycircles")
+            .data(csvData)
+            .enter()
+            .append("circle")
+            .attr("cx", margin.left)
+            .attr("cy", function (d, i) { return 20 + i * 25 })
+            .attr("r", 7)
+            .style("fill", function (d) { return legColor(d.region) })
+            .on("click", funcOnHover)
+            .on("mouseover", funcOnHover)
+            .on("mouseleave", funcNoHover)
+
+        g.selectAll("mylabels")
+            .data(csvData)
+            .enter()
+            .append("text")
+            .attr("x", margin.left + 16)
+            .attr("y", function (d, i) { return 20 + i * 25 })
+            // .attr('dy', 0)
+            .style("fill", function (d) { return legColor(d.region) })
+            .style('font-size', legendFontSize)
+            .text(function (d) { return d.value }) //.call(wrap, 50, 1)
+            .attr("text-anchor", "left")
+            .style("alignment-baseline", "middle")
+            .on("click", funcOnHover)
+            .on("mouseover", funcOnHover)
+            .on("mouseleave", funcNoHover);
+
+        return { g }
+    };
 
 }
