@@ -22,7 +22,7 @@
 </head>
 
 <body class="page-body">
-    <h1>Bubble Charts</h1>
+    <!-- <h1>Bubble Charts</h1> -->
 
     <!-- Create a div where the graph will take place -->
     <div class="graph_div">
@@ -56,9 +56,8 @@
             .append("g")
             .attr("transform",
                 "translate(" + margin.left + "," + margin.top + ")");
-        console.log("/DV/data/buble_data.csv")
         //Read the data
-        d3.csv("/DV/data/buble_data.csv", function (data) {
+        d3.csv("/data/bubble_data.csv", function (data) {
 
             // console.log(data)
             var result = data.reduce(function (r, a) {

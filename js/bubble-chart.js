@@ -80,6 +80,13 @@ window.onload = function () {
         d3.csv("../data/bubble_data.csv", function (data) {
 
             console.log(data)
+            // var result = d3.reduce(data, function (r, a) {
+            //     if (!r[a.Regional_indicator]) {
+            //         r[a.Regional_indicator] = [];
+            //     }
+            //     r[a.Regional_indicator].push(a);
+            //     return r;
+            // }, {});
             var result = data.reduce(function (r, a) {
                 r[a.Regional_indicator] = r[a.Regional_indicator] || [];
                 r[a.Regional_indicator].push(a);
@@ -144,10 +151,7 @@ window.onload = function () {
                 className: "legend-group"
             }))
 
-
             // ------------------------------------------------------------------------------------------
-
-
 
             var tooltip = d3.select("body")
                 .append("div")
