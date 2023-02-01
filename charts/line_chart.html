@@ -25,40 +25,33 @@
     <script src="https://d3js.org/d3.v6.js"></script>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<!-- <body class="d-flex flex-column min-vh-100 odd-section"> -->
 
-    <!-- Header -->
+<body class="page-body odd-section">
+    <div class="graph_div">
+        <select name="graphContent" id="graphContent">
+            <option value="cases">New cases share(Top 10)</option>
+            <option value="vaccinations">Vaccinations</option>
+        </select>
 
-    <div class="mb-5" id="top-header"></div>
+        <div id="container" class="svg-container svg-container-line-chart"></div>
 
-    <!-- heading and svg -->
-    <section>
-        <div class="container px-5 py-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col">
-                    <h2 class="display-4">COVID-19 Cases in Asian Countries</h2>
-                    <p>The chart displays all the Asian countries whose data was available.
-                        Line chart for COVID-19 progress in all the Asian countries.
-                        By default top 5 countries with the most cases
-                        would be highlighted and the rest would be greyed.
-                        User would be able to select all the countries
-                        and will have mouse interactivity to see the specific country
-                    </p>
-                </div>
-            </div>
-            <select name="graphContent" id="graphContent">
-                <option value="cases">New cases share(Top 10)</option>
-                <option value="vaccinations">Vaccinations</option>
-            </select>
-            <div class="row align-items-center">
-                <div id="container" class="svg-container svg-container-line-chart"></div>
-            </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+            </label>
         </div>
+
+    </div>
+
     </section>
 
-    <section>
+    <!-- <section>
         <div class="container px-5 py-5">
-            <div class="row gx-5 align-items-center">
+             <div class="row gx-5 align-items-center">
                 <div class="col">
                     <h2 class="display-4">COVID-19 Cases in Asian Countries</h2>
                     <p>The chart displays all the Asian countries whose data was
@@ -70,14 +63,14 @@
                         countries as well and be able to have hovering interactivity.
                     </p>
                 </div>
-            </div>
+        </div> 
             <div class="row align-items-center">
                 <div id="container2" class="svg-container svg-container-line-chart"></div>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <div class="mt-auto" id="down-footer"></div>
+    <!-- <div class="mt-auto" id="down-footer"></div> -->
     <script src="../js/scripts.js"></script>
     <script src="../js/line-chart.js"></script>
     <script>
@@ -123,12 +116,12 @@
                 .classed("svg-content", true);
             if (option == 'cases') {
                 var max = 60
-                var dataset_link = "/DV/data/line_data.csv"
+                var dataset_link = "../data/line_data.csv"
             } else {
                 var max = 100
-                var dataset_link = "/DV/data/line_data_vaccinations.csv"
+                var dataset_link = "../data/line_data_vaccinations.csv"
             }
-            console.log(dataset_link)
+            // console.log(dataset_link)
             const timeConv = d3.timeParse("%Y-%m-%d");
             var formatDecimal = d3.format(",.4f");
             const dataset = d3.csv(dataset_link);
@@ -228,7 +221,7 @@
                     .attr("d", function (d) { return line(d.values); });
 
                 lines.append("text")
-                    .attr("class", "serie_label")
+                    .attr("class", "series_label")
                     .datum(function (d) {
                         return {
                             id: d.id,
@@ -285,7 +278,7 @@
                             .duration("200")
                             .attr("r", 6)
                             .style("opacity", 1)
-                            .style("fill", "#ed3700");
+                            .style("fill", "#FF1D33");
                     })
 
                     .on("mouseout", function (d) {
@@ -310,12 +303,12 @@
                             .transition()
                             .delay("100")
                             .duration("10")
-                            .style("stroke", "#ed3700")
+                            .style("stroke", "#FF1D33")
                             .style("opacity", "1")
                             .style("stroke-width", "3");
 
                         const legend = d3.select(this.parentNode)
-                            .select(".serie_label");
+                            .select(".series_label");
 
                         legend
                             .transition()
@@ -337,12 +330,12 @@
                             .style("stroke-width", "10");
 
                         const legend = d3.select(this.parentNode)
-                            .select(".serie_label");
+                            .select(".series_label");
                         legend
                             .transition()
                             .delay("100")
                             .duration("10")
-                            .style("fill", "#d2d2d2");
+                            .style("fill", "#ede9e9");
                     });
 
             });

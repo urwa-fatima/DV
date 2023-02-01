@@ -103,20 +103,20 @@
 /* LINE CHART */
 .line {
     fill: none;
-    stroke: #d2d2d2;
+    stroke: #e7e4e4;
     stroke-width: 3;
 }
 
 .ghost-line {
     fill: none;
-    stroke: #d2d2d2;
+    stroke: #FF1D33;
     opacity: 0;
     stroke-width: 10;
 }
 
 path.line-0 {
     fill: none;
-    stroke: #ed3700;
+    stroke: #FF1D33;
 }
 
 path.line-1 {
@@ -131,8 +131,9 @@ path.line-2 {
     stroke-dasharray: 6;
 }
 
-.serie_label {
-    fill: #2b2929;
+.series_label {
+    fill: #e7e4e4;
+    text-shadow: rgb(38, 38, 35) 1px 0 10px;
     font-family: Georgia;
     font-size: 80%;
 }
@@ -151,8 +152,8 @@ path.line-2 {
 }
 
 /* LABEL*/
-.serie_label {
-    fill: #d2d2d2;
+.series_label {
+    fill: #e7e4e4;
     font-family: Georgia;
     font-size: 80%;
 }
