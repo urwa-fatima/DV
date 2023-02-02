@@ -31,13 +31,17 @@
     overflow: hidden;
 }
 
+.bubble-svg {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
 .graph-div {
-
-
     width: 100%;
     height: 100%;
-    /* optional */
-
 }
 
 .main-graph {

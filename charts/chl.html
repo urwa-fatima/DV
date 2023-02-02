@@ -12,17 +12,14 @@
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-    <style type="text/css">
-
-    </style>
     <script src="https://unpkg.com/d3-simple-slider"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/style-custom.css">
 
 </head>
 
-<body>
-    <div style="text-align: center;">
-        <h1>Choropleth Map 1</h1>
-    </div>
+<body class="odd-section">
+
     <!-- Create an element where the map will take place -->
     <div style="display: flex;">
         <div id="colorButton">
@@ -30,11 +27,6 @@
             <input type="radio" name="colorButton" value="vaccinated"> Vaccinated<br>
             <input type="radio" name="colorButton" value="ratio"> Deaths/Vaccinated<br>
         </div>
-        <!-- <div id="yearButton" style="margin-left: 20px;">
-            <input type="radio" name="yearButton" value="2020" checked> 2020<br>
-            <input type="radio" name="yearButton" value="2021"> 2021<br>
-            <input type="radio" name="yearButton" value="2022"> 2022<br>
-        </div> -->
     </div>
     <div class="row align-items-center">
         <div class="col-sm-2">
@@ -45,7 +37,7 @@
         </div>
     </div>
     <div id="my_dataviz" style="border: 1px solid black; width: 1000px;">
-        <svg id="my_dataviz" width="1000" height="600"></svg>
+        <svg id="my_dataviz" width="800" height="600"></svg>
     </div>
     <div style="position: absolute;top:850px; font-size:20px; margin-left:1%;">
     </div>
@@ -120,7 +112,7 @@
             console.log("/DV/data/map_data.csv")
             d3.queue()
                 .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-                .defer(d3.csv, "/DV/data/map_data.csv")
+                .defer(d3.csv, "../data/map_data.csv")
                 .await(ready);
             function ready(error, topo, args) {
                 changeData(error, topo, args, columnValue, year, parseInt(month.toString()))

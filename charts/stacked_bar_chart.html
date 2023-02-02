@@ -12,9 +12,6 @@
 </head>
 
 <body>
-    <div class="graph_center">
-        <h1>Case fatality rate of COVID-19</h1>
-    </div>
     <div style="position: absolute;" id="my_dataviz"></div>
     <div class="container">
         <!-- <div class="line-vertical arrow-up"></div> -->
@@ -68,17 +65,17 @@
                 }
             }
             if (option == 'density') {
-                var dataset_link = "/DV/data/dataForStackedBarChart/data_stacked_ordered_density.csv"
+                var dataset_link = "../data/dataForStackedBarChart/data_stacked_ordered_density.csv"
             } else if (option == 'gdp') {
-                var dataset_link = "/DV/data/dataForStackedBarChart/data_stacked_ordered_gdp.csv"
+                var dataset_link = "../data/dataForStackedBarChart/data_stacked_ordered_gdp.csv"
             } else if (option == 'dp') {
-                var dataset_link = "/DV/data/dataForStackedBarChart/data_stacked_ordered_dp.csv"
+                var dataset_link = "../data/dataForStackedBarChart/data_stacked_ordered_dp.csv"
             } else if (option == 'hbpt') {
-                var dataset_link = "/DV/data/dataForStackedBarChart/data_stacked_ordered_hbpt.csv"
+                var dataset_link = "../data/dataForStackedBarChart/data_stacked_ordered_hbpt.csv"
             } else if (option == 'hdi') {
-                var dataset_link = "/DV/data/dataForStackedBarChart/data_stacked_ordered_hdi.csv"
+                var dataset_link = "../data/dataForStackedBarChart/data_stacked_ordered_hdi.csv"
             } else if (option == 'hf') {
-                var dataset_link = "/DV/data/dataForStackedBarChart/data_stacked_ordered_hf.csv"
+                var dataset_link = "../data/dataForStackedBarChart/data_stacked_ordered_hf.csv"
             }
 
             d3.csv(dataset_link).then(function (data) {

@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group Avatar: Scatter Plot with D3.js</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/style-custom.css">
 
     <!-- Load d3.js -->
     <script src="https://d3js.org/d3.v4.js"></script>
@@ -15,11 +17,6 @@
 </head>
 
 <body class="container">
-
-    <div class="back-home"><a href="../assignment_two.html">Back</a></div>
-    <h1 class="graph_center">The Scatter Plot of Tree Size and CO2</h1>
-
-
     <!-- Create a div where the graph will take place -->
     <!-- <div class="div_for_light_colors clearfix"> -->
     <div class="graph_div ">
@@ -61,8 +58,7 @@
             .style("border-radius", "5px")
             .style("padding", "10px")
             .style("color", "white")
-        console.log("/DV/data/scatter_data.csv")
-        d3.csv("/DV/data/scatter_data.csv", function (data) {
+        d3.csv("../data/scatter_data.csv", function (data) {
             var result = data.reduce(function (r, a) {
                 r[a.Regional_indicator] = r[a.Regional_indicator] || [];
                 r[a.Regional_indicator].push(a);

@@ -28,9 +28,11 @@ window.onload = function () {
         var width = divID.node().getBoundingClientRect().width;
         // console.log(width)
         bubble_chart(divID, Object.assign({}, myTheme, {
-            width: divID.node().getBoundingClientRect().width,
-            height: width / 2,
-            margin: { top: 20, bottom: 100, left: 100, right: 250 }
+            // width: divID.node().getBoundingClientRect().width,
+            width: 550,
+            height: 400,
+            // height: width / 2,
+            margin: { top: 20, bottom: 100, left: 80, right: 20 }
         }));
 
     }
@@ -124,17 +126,27 @@ window.onload = function () {
 
             // Add a legend(interactive)
 
-            var legWidth = 300, legHeight = 180, legMargin = { top: 5, bottom: 5, left: 5, right: 5 };
+            var legWidth = 250, legHeight = 180, legMargin = { top: 5, bottom: 5, left: 5, right: 5 };
 
-            let legend_label = svg.selectAll('.label_group').data([null]);
-            legend_label = legend_label
-                .enter()
-                .append("g")
-                .merge(legend_label)
-                .attr("class", "label_group")
-                .attr("transform", `translate(${width - margin.right} , 0)`);
+            var legend_svg = d3.select("#my_legend").selectAll("svg").data([null]);
 
-            legendConvention(legend_label, Object.assign({}, props, {
+            legend_svg = legend_svg.enter()
+                .append('svg')
+                .merge(legend_svg)
+                .attr("width", legWidth)
+                .attr("height", legHeight);
+
+            legend_svg.selectAll("g").remove();
+
+            // let legend_label = legend_svg.selectAll('.label_group').data([null]);
+            // legend_label = legend_label
+            //     .enter()
+            //     .append("g")
+            //     .merge(legend_label)
+            //     .attr("class", "label_group")
+            // .attr("transform", `translate(${width - margin.right} , 0)`);
+
+            legendConvention(legend_svg, Object.assign({}, props, {
                 csvData: TotalRegionalIndicator,
                 width: legWidth,
                 height: legHeight,
