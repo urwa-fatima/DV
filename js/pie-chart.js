@@ -17,8 +17,8 @@ function pie_chart(selection, props) {
         margin
     } = props;
 
-    var radius = Math.min(width, height) / 2 - margin.left - margin.right;
-    var inner_radius = Math.min(width, height) / 3 - margin.left - margin.right;
+    var radius = Math.min(width, height) / 1.85 - margin.left - margin.right;
+    var inner_radius = Math.min(width, height) / 2.7 - margin.left - margin.right;
 
     let svg = selection.selectAll('svg').data([null]);
 
@@ -142,15 +142,24 @@ function pie_chart(selection, props) {
         });
 
         label_g.append("text")
-            .attr('y', -inner_radius + (inner_radius - 20))
+            .attr('y', -inner_radius + (inner_radius - 17))
             .attr("dy", 0)
-            .text("Total Deaths " + "in World Due to COVID-19: ").call(wrap, 120, 1.3)
+            .text("Total Deaths " + "in World Due to COVID-19 ").call(wrap, 120, 1.5)
             .style("text-anchor", "middle")
-            .style("fill", "#635f5d")
+            .style("fill", "white")
             .style("font-size", "0.8em")
-            .append("tspan").text(" " + sum)
             .style("text-anchor", "middle")
-            .style("font-weight", 800)
+
+
+        label_g.append("text")
+            .attr('y', -inner_radius + (inner_radius + 50))
+            .attr("dy", 0)
+            .text(sum).call(wrap, 90, 1.5)
+            .style("text-anchor", "middle")
+            .style("fill", "white")
+            .style("font-size", "1.2em")
+            .style("text-anchor", "middle")
+            .style("font-weight", 600)
 
 
     });
