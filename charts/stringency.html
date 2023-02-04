@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group Avatar: Choropleth Map 1</title>
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <!-- <link href="../css/style.css" rel="stylesheet"> -->
 
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-    <style type="text/css">
 
-    </style>
     <script src="https://unpkg.com/d3-simple-slider"></script>
 
 </head>
@@ -23,17 +23,19 @@
     <!-- Create an element where the map will take place -->
     <div style="display: flex;">
     </div>
-    <div class="row align-items-center">
-        <div class="col-sm-2">
+    <div class="d-flex flex-column justify-content-center">
+        <div class="text-center">
             <p id="value-time"></p>
         </div>
-        <div class="col-sm">
-            <div id="slider-time"></div>
+        <div class="text-center" id="slider-time"></div>
+    </div>
+    <div class="d-flex justify-content-center">
+
+        <div class="" id="my_dataviz" style="border: 1px solid #7b7b7b; width: 1000px;">
+            <svg id="my_dataviz" width="1000" height="600"></svg>
         </div>
     </div>
-    <div id="my_dataviz" style="border: 1px solid black; width: 1000px;">
-        <svg id="my_dataviz" width="1000" height="600"></svg>
-    </div>
+
     <div style="position: absolute;top:850px; font-size:20px; margin-left:1%;">
     </div>
     <script>
@@ -47,7 +49,7 @@
         ];
 
         const d = new Date();
-        document.write("The current month is " + monthNames[d.getMonth()]);
+        // document.write("The current month is " + monthNames[d.getMonth()]);
         // Time
         var dataTime = d3.range(0, 36, 3).map(function (d) {
             var year_add = Math.floor(d / 12)
@@ -60,7 +62,7 @@
             .min(d3.min(dataTime))
             .max(d3.max(dataTime))
             .step(60 * 60 * 24 * 365)
-            .width(450)
+            .width(700)
             .tickFormat(d3.timeFormat('%m.%Y'))
             .tickValues(dataTime)
             // .default(new Date(2020, 1, 1))
@@ -72,7 +74,7 @@
         var gTime = d3
             .select('div#slider-time')
             .append('svg')
-            .attr('width', 500)
+            .attr('width', 800)
             .attr('height', 100)
             .append('g')
             .attr('transform', 'translate(30,30)');
@@ -126,9 +128,11 @@
                 .center([100, 23])                // GPS of location to zoom on
                 .translate([width / 2, height / 2]);
             // Data and color scale
+            var pinkColors = ["#ffd7cf", "#ffbfb2", "#ffa696", "#ff8d7c", "#ff7162", "#ff504a", "#ff1d33"]
             var colorScale = d3.scaleThreshold()
                 .domain(domain)
-                .range(d3.schemeReds[7]);
+                .range(pinkColors);
+            // .range(d3.schemeReds[7]);
 
             var tooltip = d3.select("body")
                 .append("div")
@@ -144,6 +148,8 @@
                 .data(topo.features)
                 .enter()
                 .append("path")
+                .attr("stroke", "white")
+                .attr("stroke-width", "0.8px")
                 // draw each country
                 .attr("d", d3.geoPath()
                     .projection(projection)
@@ -157,7 +163,7 @@
                 .on("mouseover", function () { return tooltip.style("visibility", "visible"); })
                 .on("mousemove", function (d) {
                     return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px")
-                        .html((d.properties.name) + "<br><span>" + (d.count));
+                        .html((d.properties.name) + "<br><span> Stringency Index: " + (d.count));
                 })
                 .on("mouseout", function () {
                     return tooltip.style("visibility", "hidden");
@@ -173,7 +179,7 @@
                 .append('rect')
                 .attr("x", width - 115)
                 .attr("y", function (d, i) {
-                    return i * 20 + 50;
+                    return i * 20 + 250;
                 })
                 .attr("width", 10)
                 .attr("height", 10)
@@ -188,7 +194,7 @@
                 .append('text')
                 .attr("x", width - 100) //leave 5 pixel space after the <rect>
                 .attr("y", function (d, i) {
-                    return i * 20 + 50;
+                    return i * 20 + 250;
                 })
                 .attr("dy", "0.7em") //place text one line *below* the x,y point
                 .text(function (d, i) {
