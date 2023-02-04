@@ -18,7 +18,7 @@
 
 </head>
 
-<body class="odd-section">
+<body class="odd-section align-items-center">
 
     <!-- Create an element where the map will take place -->
     <div style="display: flex;">
@@ -28,19 +28,25 @@
             <input type="radio" name="colorButton" value="ratio"> Deaths/Vaccinated<br>
         </div>
     </div>
-    <div class="row align-items-center">
-        <div class="col-sm-2">
+
+    <div class="row text-center">
+        <div class="col">
             <p id="value-time"></p>
         </div>
-        <div class="col-sm">
-            <div id="slider-time"></div>
+    </div>
+    <div class="row d-flex justify-content-center">
+
+        <div class="text-center justify-content-center" id="slider-time"></div>
+
+        <div id="my_dataviz" style="border: 1px solid #212529; width: 900px;">
+            <svg id="my_dataviz" width="900" height="600"></svg>
         </div>
+        <!-- <div style="position: absolute;top:850px; font-size:20px; margin-left:1%;"></div> -->
     </div>
-    <div id="my_dataviz" style="border: 1px solid black; width: 1000px;">
-        <svg id="my_dataviz" width="800" height="600"></svg>
-    </div>
+
+    <!-- 
     <div style="position: absolute;top:850px; font-size:20px; margin-left:1%;">
-    </div>
+    </div> -->
     <script>
         var domain = {
             "2020": {
@@ -81,7 +87,7 @@
             .min(d3.min(dataTime))
             .max(d3.max(dataTime))
             .step(60 * 60 * 24 * 365)
-            .width(450)
+            .width(800)
             .tickFormat(d3.timeFormat('%m.%Y'))
             .tickValues(dataTime)
             // .default(new Date(2020, 1, 1))
@@ -93,7 +99,7 @@
         var gTime = d3
             .select('div#slider-time')
             .append('svg')
-            .attr('width', 500)
+            .attr('width', 900)
             .attr('height', 100)
             .append('g')
             .attr('transform', 'translate(30,30)');
@@ -161,16 +167,18 @@
                 .center([100, 23])                // GPS of location to zoom on
                 .translate([width / 2, height / 2]);
             // Data and color scale
+            var myColors = ["#ffd7cf", "#ffbfb2", "#ffa696", "#ff8d7c", "#ff7162", "#ff504a", "#ff1d33"]
             var colorScale = d3.scaleThreshold()
                 .domain(domain[yearValue][columnValue])
-                .range(d3.schemeReds[7]);
+                .range(myColors);
+            // .range(d3.schemeReds[7]);
 
             var tooltip = d3.select("body")
                 .append("div")
                 .style("position", "absolute")
                 .style("z-index", "10")
                 .style("visibility", "hidden")
-                .style("background-color", "white")
+                .style("background-color", "#E5E2E0")
                 .style("box-shadow", "0px 3px 9px rgba(0, 0, 0, .15)")
                 .style("padding", "5px")
 
@@ -183,6 +191,8 @@
                 .attr("d", d3.geoPath()
                     .projection(projection)
                 )
+                .attr("stroke", "#E5E2E0")
+                .attr("stroke-width", "1px")
                 // set the color of each country
                 .attr("fill", function (d) {
                     d.count = data.get(d.properties.name) || 0;
@@ -208,7 +218,7 @@
                 .append('rect')
                 .attr("x", width - 115)
                 .attr("y", function (d, i) {
-                    return i * 20 + 50;
+                    return i * 20 + 250;
                 })
                 .attr("width", 10)
                 .attr("height", 10)
@@ -223,7 +233,7 @@
                 .append('text')
                 .attr("x", width - 100) //leave 5 pixel space after the <rect>
                 .attr("y", function (d, i) {
-                    return i * 20 + 50;
+                    return i * 20 + 250;
                 })
                 .attr("dy", "0.7em") //place text one line *below* the x,y point
                 .text(function (d, i) {
