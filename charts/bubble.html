@@ -21,15 +21,13 @@
     </style>
 </head>
 
-<body class="page-body">
-    <!-- <h1>Bubble Charts</h1> -->
-    <div class="pt-5"></div>
-
+<body>
     <!-- Create a div where the graph will take place -->
-    <div class="container-fluid">
+    <div class="graph_div">
 
         <!-- <div id="my_dataviz" style="float: left;"></div> -->
-        <div class="svg-container align-items-center" id="bubble_chart" style="float: left;">
+        <div class="col-lg-6">
+            <div class="svg-container align-items-center" id="bubble_chart" style="float: left;"></div>
         </div>
         <script src="../js/bubble-chart.js"></script>
         <div id="my_legend"></div>
@@ -57,8 +55,9 @@
             .append("g")
             .attr("transform",
                 "translate(" + margin.left + "," + margin.top + ")");
+        console.log("/DV/data/buble_data.csv")
         //Read the data
-        d3.csv("/data/bubble_data.csv", function (data) {
+        d3.csv("/DV/data/buble_data.csv", function (data) {
 
             // console.log(data)
             var result = data.reduce(function (r, a) {

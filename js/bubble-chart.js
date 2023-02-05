@@ -159,7 +159,7 @@ window.onload = function () {
 
             // ------------------------------------------------------------------------------------------
 
-            var tooltip = d3.select("body")
+            var tooltip = d3.select(".graph_div")
                 .append("div")
                 .style("position", "absolute")
                 .style("z-index", "10")
