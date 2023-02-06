@@ -34,17 +34,6 @@
         <div id="my_legend"></div>
 
     </div>
-    <script>
-        window.addEventListener('message', receiveMessage, false);
-
-        function receiveMessage(event) {
-            var data = event.data;
-            document.getElementById("tooltip").innerHTML = data.tooltip;
-            // Update the tooltip with the data received from the iframe
-        }
-    </script>
-
-
     <!-- <script>
 
         // set the dimensions and margins of the graph

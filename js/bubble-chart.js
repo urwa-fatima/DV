@@ -126,7 +126,7 @@ window.onload = function () {
 
             // Add a legend(interactive)
 
-            var legWidth = 250, legHeight = 180, legMargin = { top: 5, bottom: 5, left: 5, right: 5 };
+            var legWidth = 500, legHeight = 100, legMargin = { top: 5, bottom: 5, left: 5, right: 5 };
 
             var legend_svg = d3.select("#my_legend").selectAll("svg").data([null]);
 
@@ -197,7 +197,6 @@ window.onload = function () {
                 tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px")
                     .html((d.location) + "<br><span>" + "percentage total vaccinations: " + (parseInt(d.ratio_total_vaccinations) + "%"));
                 // .html((d.location) + "<br><span>" + "Total cases:  " + (parseInt(d.total_cases) + "<br><span>" + "population: " + (d.population) + "<br> aged 65 and older: " + d.aged_65_older));
-
             }
 
             var doNotHighlight = function (d) {
@@ -213,10 +212,6 @@ window.onload = function () {
                 tooltip
                     .style("visibility", "hidden");
             }
-
-
-
-
 
             // Add dots
             g.append('g')
@@ -362,7 +357,7 @@ window.onload = function () {
                 lineHeight = +lineH, // ems
                 y = text.attr("y"),
                 dy = parseFloat(text.attr("dy")),
-                tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+                tspan = text.text(null).append("tspan").attr("x", 20).attr("y", y).attr("dy", dy + "em");
             while (word = words.pop()) {
                 line.push(word);
                 tspan.text(line.join(" "));
@@ -370,58 +365,94 @@ window.onload = function () {
                     line.pop();
                     tspan.text(line.join(" "));
                     line = [word];
-                    tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                    tspan = text.append("tspan").attr("x", 20).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
                 }
             }
         });
     }
+    function wordwrap(text) {
+        console, log(text.length)
+        var lines = text.split(" ")
+        return lines
+    }
 
     function legendConvention(selection, props) {
-        const { csvData, width,
-            height,
-            margin,
+        const { csvData,
             legendFontSize,
             legColor,
             funcOnHover,
             funcNoHover,
-            className = "legend-group" } = props;
+            className = "legend" } = props;
+
+        var n = csvData.length / 2;
+        var itemWidth = 150;
+        var itemHeight = 50;
+
         let g = selection
             .selectAll('.' + className).data([null]);
-        g = g.enter().append('g')
+        g = g.data(csvData).enter().append('g')
             .attr('class', className)
             .merge(g)
-            .attr('width', width)
-            .attr('height', height)
-            .attr('transform', `translate(${margin.left}, ${margin.top})`);
+            .attr("transform", function (d, i) { return "translate(" + i % n * itemWidth + "," + Math.floor(i / n) * itemHeight + ")"; });
 
-        // circles
-        g.selectAll("mycircles")
-            .data(csvData)
-            .enter()
-            .append("circle")
-            .attr("cx", margin.left)
-            .attr("cy", function (d, i) { return 20 + i * 25 })
-            .attr("r", 7)
-            .style("fill", function (d) { return legColor(d.region) })
-            .on("click", funcOnHover)
-            .on("mouseover", funcOnHover)
-            .on("mouseleave", funcNoHover)
-
-        g.selectAll("mylabels")
-            .data(csvData)
-            .enter()
-            .append("text")
-            .attr("x", margin.left + 16)
-            .attr("y", function (d, i) { return 20 + i * 25 })
-            // .attr('dy', 0)
-            .style("fill", function (d) { return legColor(d.region) })
-            .style('font-size', legendFontSize)
-            .text(function (d) { return d.value }) //.call(wrap, 50, 1)
-            .attr("text-anchor", "left")
-            .style("alignment-baseline", "middle")
+        var rects = g.append('rect')
+            .attr("width", 15)
+            .attr("height", 15)
+            .attr("fill", function (d, i) { return legColor(d.region); })
             .on("click", funcOnHover)
             .on("mouseover", funcOnHover)
             .on("mouseleave", funcNoHover);
+
+        var text = g.append('text')
+            .attr("dy", 0)
+
+            .attr("x", 20)
+            .attr("y", 12)
+            .style("fill", function (d) { return legColor(d.region) })
+            .style('font-size', legendFontSize)
+            .text(function (d) { return d.value }).call(wrap, 100, 1)
+            .on("click", funcOnHover)
+            .on("mouseover", funcOnHover)
+            .on("mouseleave", funcNoHover);
+
+
+        // let g = selection
+        //     .selectAll('.' + className).data([null]);
+        // g = g.enter().append('g')
+        //     .attr('class', className)
+        //     .merge(g)
+        //     .attr('width', width)
+        //     .attr('height', height)
+        //     .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+        // // circles
+        // g.selectAll("mycircles")
+        //     .data(csvData)
+        //     .enter()
+        //     .append("circle")
+        //     .attr("cx", margin.left)
+        //     .attr("cy", function (d, i) { return 20 + i * 25 })
+        //     .attr("r", 7)
+        //     .style("fill", function (d) { return legColor(d.region) })
+        //     .on("click", funcOnHover)
+        //     .on("mouseover", funcOnHover)
+        //     .on("mouseleave", funcNoHover)
+
+        // g.selectAll("mylabels")
+        //     .data(csvData)
+        //     .enter()
+        //     .append("text")
+        //     .attr("x", margin.left + 16)
+        //     .attr("y", function (d, i) { return 20 + i * 25 })
+        //     // .attr('dy', 0)
+        //     .style("fill", function (d) { return legColor(d.region) })
+        //     .style('font-size', legendFontSize)
+        //     .text(function (d) { return d.value }) //.call(wrap, 50, 1)
+        //     .attr("text-anchor", "left")
+        //     .style("alignment-baseline", "middle")
+        //     .on("click", funcOnHover)
+        //     .on("mouseover", funcOnHover)
+        //     .on("mouseleave", funcNoHover);
 
         return { g }
     };
