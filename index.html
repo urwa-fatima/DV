@@ -93,8 +93,12 @@
     <section>
         <div class="container px-2">
             <div class="row gx-5 align-items-center">
-                <div class="col-md-8"><iframe src="charts/bubble.html" title="Bubble Chart"
+                <div class="col-md-8">
+                    <iframe src="charts/bubble.html" title="Bubble Chart"
                         style="width: 100%; height: 600px; overflow: hidden;" scrolling="no"></iframe>
+                    <script>
+                        var data = { tooltip: "This is the tooltip content" };
+                        window.parent.postMessage(data, "https://urwa-fatima.github.io/DV");</script>
                 </div>
                 <div class="col-md-4">
                     <h2 class="display-4">Number Of Cases</h2>

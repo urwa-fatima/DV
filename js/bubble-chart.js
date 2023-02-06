@@ -116,13 +116,13 @@ window.onload = function () {
                 // .attr("r", 7)
             }
             // Highlight the type that is hovered
-            const doNotHighlight = function (d) {
-                d3.selectAll(".bubbles")
-                    .transition()
-                    .duration(200)
-                    .style("fill", d => color(d.region))
-                // .attr("r", 3);
-            }
+            // const doNotHighlight = function (d) {
+            //     d3.selectAll(".bubbles")
+            //         .transition()
+            //         .duration(200)
+            //         .style("fill", d => color(d.region))
+            //     // .attr("r", 3);
+            // }
 
             // Add a legend(interactive)
 
@@ -159,32 +159,65 @@ window.onload = function () {
 
             // ------------------------------------------------------------------------------------------
 
-            var tooltip = d3.select(".graph_div")
+            var tooltip = d3.select("body")
                 .append("div")
                 .style("position", "absolute")
                 .style("z-index", "10")
                 .style("visibility", "hidden")
                 .style("box-shadow", "0px 3px 9px rgba(0, 0, 0, .15)")
                 .style("padding", "5px")
-                .style("background-color", "#E5E2E0")
+                .style("background-color", "black")
                 .style("border-radius", "5px")
                 .style("padding", "10px")
-                .style("color", "#635F5D")
+                .style("color", "white")
 
             // // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
+
             var showTooltip = function (d) {
-                console.log(d)
+                selected_region_key = d.region
+                d3.selectAll(".dot")
+                    .transition()
+                    .duration(200)
+                    .style("fill", "lightgrey")
+                // .attr("r", 3)
+
+                d3.selectAll("." + selected_region_key)
+                    .transition()
+                    .duration(200)
+                    .style("fill", color(selected_region_key))
+                // .attr("r", 7)
                 tooltip
                     .style("visibility", "visible")
-            }
-            var moveTooltip = function (d, event) {
                 tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px")
                     .html((d.location) + "<br><span>" + "percentage total vaccinations: " + (parseInt(d.ratio_total_vaccinations) + "%"));
+                // .html((d.location) + "<br><span>" + "Total cases:  " + (parseInt(d.total_cases) + "<br><span>" + "population: " + (d.population) + "<br> aged 65 and older: " + d.aged_65_older));
+
             }
-            var hideTooltip = function (d) {
+            var moveTooltip = function (d) {
+                tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px")
+                    .html((d.location) + "<br><span>" + "percentage total vaccinations: " + (parseInt(d.ratio_total_vaccinations) + "%"));
+                // .html((d.location) + "<br><span>" + "Total cases:  " + (parseInt(d.total_cases) + "<br><span>" + "population: " + (d.population) + "<br> aged 65 and older: " + d.aged_65_older));
+
+            }
+
+            var doNotHighlight = function (d) {
+                d3.selectAll(".dot")
+                    .transition()
+                    .duration(200)
+                    .style("fill", d => color(d.region))
+                    .attr("r", 3);
+
+                // tooltip.style("display", "none");
+            }
+            const hideTooltip = function (d) {
                 tooltip
                     .style("visibility", "hidden");
             }
+
+
+
+
+
             // Add dots
             g.append('g')
                 .selectAll("dot")
