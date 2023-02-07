@@ -19,7 +19,7 @@
 <body>
     <!-- Create a div where the graph will take place -->
     <!-- <div class="div_for_light_colors clearfix"> -->
-    <div class="graph_div align-items-center ">
+    <div class="graph_div align-items-center p-5">
         <div class="p-5 align-items-center" id="my_dataviz" style="float: left;"></div>
         <div class="text-center" id="my_legend"></div>
     </div>
@@ -28,12 +28,12 @@
     <script>
 
         // set the dimensions and margins of the graph
-        const margin = { top: 10, right: 30, bottom: 50, left: 60 },
-            width = 700 - margin.left - margin.right,
-            height = 500 - margin.top - margin.bottom;
+        const margin = { top: 20, right: 20, bottom: 100, left: 100 },
+            width = 750 - margin.left - margin.right,
+            height = 600 - margin.top - margin.bottom;
 
         var legend_width = 500;
-        var legend_height = 70;
+        var legend_height = 100;
 
         // var tooltip = d3.select("#my_dataviz")
         //     .append("div")
@@ -56,6 +56,7 @@
             .style("border-radius", "5px")
             .style("padding", "10px")
             .style("color", "white")
+
         d3.csv("../data/scatter_data.csv", function (data) {
             var result = data.reduce(function (r, a) {
                 r[a.Regional_indicator] = r[a.Regional_indicator] || [];
@@ -229,6 +230,7 @@
                     .attr("transform", `translate(0, ${height})`)
                     .call(d3.axisBottom(x));
 
+
                 // Add Y axis
                 const y = d3.scaleLinear()
                     .domain([0, min_maxval(yVar)[1]])
@@ -236,22 +238,36 @@
                 svg.append("g")
                     .call(d3.axisLeft(y));
 
+                svg.selectAll('.tick text')
+                    .style('font-size', '12px')
+                    .attr('fill', '#8E8883');
+                svg.selectAll('.tick line')
+                    .attr('stroke', '#C0C0BB');
+                svg.selectAll('.domain')
+                    .attr('stroke', '#C0C0BB');
+
+
                 // Add X axis label:
                 svg.append("text")
-                    .attr("text-anchor", "end")
-                    .attr("x", width - 100 + margin.left)
-                    .attr("y", height + margin.bottom - 15)
-                    // .style("fill", "white")
-                    .text("Population ages 65 and above (% of total)");
+                    .attr("text-anchor", "middle")
+                    // .attr("x", width - 100 + margin.left)
+                    .attr("x", width / 2)
+                    .attr("y", height + margin.bottom - 20)
+                    .attr('fill', "#635F5D")// .style("fill", "white")
+                    .text("Population of 65 years and above (% of total)")
+                    .style('font-size', '1.3em');
 
                 // Y axis label:
                 svg.append("text")
-                    .attr("text-anchor", "end")
+                    // .attr("text-anchor", "middle")
                     .attr("transform", "rotate(-90)")
-                    .attr("y", -margin.left + 30)
-                    .attr("x", -margin.top - (height / 6))
-                    // .style("fill", "beige")
-                    .text("COVID cases confirmed (% of total population)");
+                    // .attr("y", -margin.left + 30)
+                    .attr("y", -60)
+                    // .attr("x", -margin.top - (height / 6))
+                    .attr("x", -height + 20)
+                    .attr('fill', "#635F5D")
+                    .text("COVID Confirmed Cases (% of total population)") //.call(wrap, 150, 1)
+                    .style('font-size', '1.3em');
 
                 // Add dots
                 svg.append('g')
