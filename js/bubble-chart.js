@@ -94,7 +94,7 @@ window.onload = function () {
             var TotalRegionalIndicator = GroupbyRegionalIndicator.map((d, i) => ({ region: d[1][0].region, value: d[0] }));
 
             // console.log(TotalRegionalIndicator)
-            var mycolors = ["#a5a5a5", "#ffc000", "#5b9bd5", "#ed7d31", '#364277', '#8FBFCC', '#226D7B', '#002E6B'];
+            var mycolors = ["#a30b71", '#8FBFCC', "#26265c", "#ffd20a", '#008080', "#FF1D33", '#226D7B', '#002E6B'];
             const color = d3.scaleOrdinal()
                 .domain(TotalRegionalIndicator)
                 .range(mycolors)
@@ -370,11 +370,7 @@ window.onload = function () {
             }
         });
     }
-    function wordwrap(text) {
-        console, log(text.length)
-        var lines = text.split(" ")
-        return lines
-    }
+
 
     function legendConvention(selection, props) {
         const { csvData,
