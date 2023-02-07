@@ -154,7 +154,7 @@ window.onload = function () {
                 legColor: color,
                 funcOnHover: highlight,
                 funcNoHover: doNotHighlight,
-                className: "legend-group"
+                className: "legend"
             }))
 
             // ------------------------------------------------------------------------------------------

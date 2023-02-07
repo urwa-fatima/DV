@@ -16,12 +16,12 @@
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
 </head>
 
-<body class="container">
+<body>
     <!-- Create a div where the graph will take place -->
     <!-- <div class="div_for_light_colors clearfix"> -->
-    <div class="graph_div ">
-        <div id="my_dataviz" style="float: left;"></div>
-        <div id="my_legend"></div>
+    <div class="graph_div align-items-center ">
+        <div class="p-5 align-items-center" id="my_dataviz" style="float: left;"></div>
+        <div class="text-center" id="my_legend"></div>
     </div>
 
 
@@ -29,11 +29,11 @@
 
         // set the dimensions and margins of the graph
         const margin = { top: 10, right: 30, bottom: 50, left: 60 },
-            width = 460 - margin.left - margin.right,
+            width = 700 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
 
-        var legend_width = 300;
-        var legend_height = 180;
+        var legend_width = 500;
+        var legend_height = 70;
 
         // var tooltip = d3.select("#my_dataviz")
         //     .append("div")
@@ -44,8 +44,6 @@
             .append("svg")
             .attr("width", legend_width)
             .attr("height", legend_height)
-            .append("g")
-
 
         var tooltip = d3.select("body")
             .append("div")
@@ -135,40 +133,72 @@
                     .style("visibility", "hidden");
             }
 
+            var mycolors = ["#a30b71", '#8FBFCC', "#26265c", "#ffd20a", '#008080', "#FF1D33", '#226D7B', '#002E6B'];
+
             // select color for each tree type
             const color = d3.scaleOrdinal()
                 .domain(TotalRegionalIndicator)
-                .range(d3.schemeSet1)
+                .range(mycolors)
+            // .range(d3.schemeSet1)
             // .range(d3.schemeSet2);
 
             // ----------------------------------------------------------------------------------------
 
             // Add a legend(interactive)
 
-            legend_svg.selectAll("mycircles")
+            var n = TotalRegionalIndicator.length / 2;
+            var itemWidth = 150;
+            var itemHeight = 35;
+            var legend = legend_svg.selectAll(".legend")
                 .data(TotalRegionalIndicator)
                 .enter()
-                .append("circle")
-                .attr("cx", margin.left)
-                .attr("cy", function (d, i) { return 20 + i * 25 })
-                .attr("r", 7)
-                .style("fill", function (d) { return color(d.region) })
-                .on("mouseover", highlight)
-                .on("mouseleave", doNotHighlight)
+                .append("g")
+                .attr("transform", function (d, i) { return "translate(" + i % n * itemWidth + "," + Math.floor(i / n) * itemHeight + ")"; })
+                .attr("class", "legend");
 
-            // Add labels beside legend dots
-            legend_svg.selectAll("mylabels")
-                .data(TotalRegionalIndicator)
-                .enter()
-                .append("text")
-                .attr("x", margin.left + 16)
-                .attr("y", function (d, i) { return 20 + i * 25 })
-                .style("fill", function (d) { return color(d.region) })
-                .text(function (d) { return d.value })
-                .attr("text-anchor", "left")
-                .style("alignment-baseline", "middle")
+            var rects = legend.append('rect')
+                .attr("width", 15)
+                .attr("height", 15)
+                .attr("fill", function (d, i) { return color(d.region); })
                 .on("mouseover", highlight)
                 .on("mouseleave", doNotHighlight);
+
+
+            var text = legend.append('text')
+                .attr("dy", 0)
+                .attr("x", 20)
+                .attr("y", 12)
+                .style("fill", function (d) { return color(d.region) })
+                .style('font-size', "0.8em")
+                .text(function (d) { return d.value }).call(wrap, 100, 1)
+                .on("mouseover", highlight)
+                .on("mouseleave", doNotHighlight);
+
+
+            // legend_svg.selectAll("mycircles")
+            //     .data(TotalRegionalIndicator)
+            //     .enter()
+            //     .append("circle")
+            //     .attr("cx", margin.left)
+            //     .attr("cy", function (d, i) { return 20 + i * 25 })
+            //     .attr("r", 7)
+            //     .style("fill", function (d) { return color(d.region) })
+            //     .on("mouseover", highlight)
+            //     .on("mouseleave", doNotHighlight)
+
+            // // Add labels beside legend dots
+            // legend_svg.selectAll("mylabels")
+            //     .data(TotalRegionalIndicator)
+            //     .enter()
+            //     .append("text")
+            //     .attr("x", margin.left + 16)
+            //     .attr("y", function (d, i) { return 20 + i * 25 })
+            //     .style("fill", function (d) { return color(d.region) })
+            //     .text(function (d) { return d.value })
+            //     .attr("text-anchor", "left")
+            //     .style("alignment-baseline", "middle")
+            //     .on("mouseover", highlight)
+            //     .on("mouseleave", doNotHighlight);
 
             // ------------------------------------------------------------------------------------------
 
@@ -244,6 +274,31 @@
 
 
         })
+
+
+        function wrap(text, width, lineH) {
+            text.each(function () {
+                var text = d3.select(this),
+                    words = text.text().split(/\s+/).reverse(),
+                    word,
+                    line = [],
+                    lineNumber = 0,
+                    lineHeight = +lineH, // ems
+                    y = text.attr("y"),
+                    dy = parseFloat(text.attr("dy")),
+                    tspan = text.text(null).append("tspan").attr("x", 20).attr("y", y).attr("dy", dy + "em");
+                while (word = words.pop()) {
+                    line.push(word);
+                    tspan.text(line.join(" "));
+                    if (tspan.node().getComputedTextLength() > width) {
+                        line.pop();
+                        tspan.text(line.join(" "));
+                        line = [word];
+                        tspan = text.append("tspan").attr("x", 20).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                    }
+                }
+            });
+        }
     </script>
 
 </body>
