@@ -26,9 +26,23 @@
     <!-- Create a div where the graph will take place -->
     <div class="graph_div">
 
+        <div class="py-3">
+            <span class="mx-3"> Order by: </span>
+            <select name="graphContent" id="graphContent" class="btn dropdown-toggle"
+                style="    border-color: #26265C;">
+                <option value="density">Population density</option>
+                <option value="gdp">GDP</option>
+                <option value="dp">Diabetes prevalence</option>
+                <option value="hf">Handwashing Facilities</option>
+                <option value="hbpt">Hospital beds per thousand</option>
+                <option value="hdi">Human development index</option>
+
+            </select>
+        </div>
+
         <!-- <div id="my_dataviz" style="float: left;"></div> -->
         <div class="d-flex align-items-start flex-column ">
-            <div class="mb-auto order-1 pt-5">
+            <div class="mb-auto order-1">
                 <div class="align-items-center" id="bubble_chart" style="float: left;"></div>
             </div>
             <div style="position: absolute; bottom: 0; right: 0;">

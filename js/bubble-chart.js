@@ -126,7 +126,7 @@ window.onload = function () {
 
             // Add a legend(interactive)
 
-            var legWidth = 500, legHeight = 100, legMargin = { top: 5, bottom: 5, left: 5, right: 5 };
+            var legWidth = 500, legHeight = 70, legMargin = { top: 5, bottom: 5, left: 5, right: 5 };
 
             var legend_svg = d3.select("#my_legend").selectAll("svg").data([null]);
 
@@ -382,7 +382,7 @@ window.onload = function () {
 
         var n = csvData.length / 2;
         var itemWidth = 150;
-        var itemHeight = 50;
+        var itemHeight = 35;
 
         let g = selection
             .selectAll('.' + className).data([null]);
