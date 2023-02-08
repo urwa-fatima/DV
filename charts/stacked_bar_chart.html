@@ -16,9 +16,17 @@
     <div class="container">
         <!-- <div class="line-vertical arrow-up"></div> -->
         <!-- <div class="info">ordered by <br><strong>population density</strong></div> -->
-        <p style="margin-left: 3%">
+        <div style="margin-left: 3%">
             The case fatality rate (CFR) is the ratio between confirmed death and confirmed cases.
-        </p>
+            Useful insights:
+            <ul>
+                <li>Overall in all countries, CFR was high in the initial period, Third wave and in Fifth period (except Yemen and Afghanistan)</li>
+                <li>In the inital period and Fifth period we can see that GDP does not affect much to CFR, but in other waves there is some correlation </li>
+                <li>Also, human developement index  has some affect to CFR in later periods</li>
+                <li>Countries with most hospital beds per thousand, GDP shows significant drop of CFR in later periods</li>
+
+            </ul>
+        </div>
 
     </div>
     <div style="margin-left: 3% ; margin-bottom: 2%;">
@@ -279,12 +287,12 @@
 
                 function convertDataColumns() {
                     return [
-                        [{ "info": "Initial period", "date": "01/01/20-30/06/20" }],
+                        [{ "info": "Initial period", "date": "01/03/20-30/06/20" }],
                         [{ "info": "Second wave", "date": "01/07/20-30/09/20" }],
-                        [{ "info": "Third wave", "date": "01/10/20-31/03/21" }],
+                        [{ "info": "Third wave/vaccine rollout", "date": "01/10/20-31/03/21" }],
                         [{ "info": "Spring/Summer 2021", "date": "01/04/21-30/07/21" }],
-                        [{ "info": "Fourth period", "date": "01/08/21-30/11/21" }],
-                        [{ "info": "Fifth period", "date": "01/12/21-24/12/22" }],
+                        [{ "info": "Fourth wave(delta variant surge)", "date": "01/08/21-30/11/21" }],
+                        [{ "info": "Fifth period(omicron surge)", "date": "01/12/21-24/12/22" }],
 
                     ]
                 }
