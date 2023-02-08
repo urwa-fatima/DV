@@ -35,39 +35,18 @@
                 <option value="cases">New cases share(Top 10)</option>
                 <option value="vaccinations">Vaccinations</option>
             </select>
-            <label class="pe-3 ps-5" for="veiwAll">View Options </label>
+            <!-- <label class="pe-3 ps-5" for="veiwAll">View Options </label>
             <select class="p-1 rounded-2" name="veiwAll" id="viewAll">
-                <option value="1">Top 5</option>
-                <option value="2">Top 10</option>
-                <option value="3">All Countries</option>
-            </select>
+                <option value="5">Top 5</option>
+                <option value="10">Top 10</option>
+                <option value="0">All Countries</option>
+            </select> -->
         </div>
         <div id="container" class="svg-container"></div>
 
     </div>
 
     </section>
-
-    <!-- <section>
-        <div class="container px-5 py-5">
-             <div class="row gx-5 align-items-center">
-                <div class="col">
-                    <h2 class="display-4">COVID-19 Cases in Asian Countries</h2>
-                    <p>The chart displays all the Asian countries whose data was
-                        available.
-                        Line chart for correlation between new cases and vaccinated
-                        people for all the Asian countries but by default
-                        we will highlight 5 countries with lowest gdp.
-                        Users would have the option to select all the
-                        countries as well and be able to have hovering interactivity.
-                    </p>
-                </div>
-        </div> 
-            <div class="row align-items-center">
-                <div id="container2" class="svg-container svg-container-line-chart"></div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- <div class="mt-auto" id="down-footer"></div> -->
     <script src="../js/scripts.js"></script>
@@ -82,23 +61,27 @@
         d3.select('#graphContent')
             .on('change', function () {
                 var newData = d3.select(this).node().value;
+                var veiwValue = d3.select('#viewAll').node().value;
                 console.log(newData)
+                console.log(veiwValue)
                 d3.select("lines.path").remove();
-                updateData(newData);
+                updateData(newData, veiwValue);
             });
         d3.select('#viewAll')
             .on('change', function () {
-                var newData = d3.select(this).node().value;
+                var veiwValue = d3.select(this).node().value;
+                var newData = d3.select('#graphContent').node().value;
+                console.log(veiwValue)
                 console.log(newData)
                 d3.select("lines.path").remove();
                 updateData(newData);
             });
 
 
-        updateData("cases")
+        updateData("cases", 5)
 
         //-----------------------------DATA-----------------------------//
-        function updateData(option) {
+        function updateData(option, viewOption) {
             if (document.getElementsByClassName("graph-line")) {
                 var elements = document.getElementsByClassName("graph-line")
                 console.log(document.getElementsByClassName("graph-line"))
@@ -119,9 +102,16 @@
                 .style("padding", padding)
                 .style("margin", margin)
                 .classed("svg-content", true);
+
+            if (viewOption == 0) {
+                viewOption = 0;
+
+            }
             if (option == 'cases') {
                 var max = 60
+                // var max = 100
                 var dataset_link = "../data/line_data.csv"
+                // var dataset_link = "../data/newcases_line_data.csv"
             } else {
                 var max = 100
                 var dataset_link = "../data/line_data_vaccinations.csv"
@@ -219,8 +209,7 @@
                 const lines = svg.selectAll("lines")
                     .data(slices)
                     .enter()
-                    .append("g")
-                    ;
+                    .append("g");
 
                 lines.append("path")
                     .attr("class", "line")
