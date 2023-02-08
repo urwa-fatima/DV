@@ -1,10 +1,16 @@
 window.onload = function () {
-    render("bubble_chart");
+    render("bubble_chart", "ratio_total_vaccinations");
     window.addEventListener('resize', function () { render("bubble_chart"); });
 
+    d3.select('#graphContent')
+        .on('change', function () {
+            var newData = d3.select(this).node().value;
+            console.log(newData)
+            console.log("newData")
+            render("bubble_chart", newData);
+        });
 
-
-    function render(divId) {
+    function render(divId, selectedColumn) {
         const myTheme = {
             axisLabelFill: '#635F5D',
             xAxisLabelOffset: 50,
@@ -27,7 +33,7 @@ window.onload = function () {
         const divID = d3.select('#' + divId);
         var width = divID.node().getBoundingClientRect().width;
         // console.log(width)
-        bubble_chart(divID, Object.assign({}, myTheme, {
+        bubble_chart(divID, selectedColumn, Object.assign({}, myTheme, {
             // width: divID.node().getBoundingClientRect().width,
             width: 550,
             height: 400,
@@ -36,7 +42,7 @@ window.onload = function () {
         }));
 
     }
-    function bubble_chart(selection, props) {
+    function bubble_chart(selection, selectedColumn, props) {
 
         const { width,
             height,
@@ -75,9 +81,28 @@ window.onload = function () {
 
         // Z Axis
         // Add a scale for bubble size
+        var domain = 105;
+        var range = 30;
+        if (selectedColumn == 'gdp_per_capita') {
+            domain = 105000;
+            range = 40
+        } else if (selectedColumn == 'diabetes_prevalence') {
+            domain = 18;
+        } else if (selectedColumn == 'handwashing_facilities') {
+            domain = 100;
+            range = 30
+        } else if (selectedColumn == 'hospital_beds_per_thousand') {
+            domain = 14;
+            range = 50
+        }
+        else if (selectedColumn == 'human_development_index') {
+            domain = 0.99;
+            range = 30
+        }
+        console.log(domain)
         var z = d3.scaleLinear()
-            .domain([1, 105])
-            .range([1, 30]);
+            .domain([0, domain])
+            .range([1, range]);
 
         d3.csv("../data/bubble_data.csv", function (data) {
 
@@ -224,7 +249,7 @@ window.onload = function () {
 
                 .attr("cx", function (d) { return xScale(parseFloat(d.ratio_total_deaths)); })
                 .attr("cy", function (d) { return yScale(parseInt(d.ratio_total_cases)); })
-                .attr("r", function (d) { return z(parseFloat(d.ratio_total_vaccinations)); })
+                .attr("r", function (d) { return z(parseFloat(d[selectedColumn])); })
                 .style("fill", function (d) { return color(d.region); })
                 .style("opacity", "0.7")
                 .attr("stroke", "black")
