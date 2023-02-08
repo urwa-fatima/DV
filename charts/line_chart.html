@@ -27,24 +27,22 @@
 
 <!-- <body class="d-flex flex-column min-vh-100 odd-section"> -->
 
-<body class="page-body odd-section">
+<body class="odd-section">
     <div class="graph_div">
-        <select name="graphContent" id="graphContent">
-            <option value="cases">New cases share(Top 10)</option>
-            <option value="vaccinations">Vaccinations</option>
-        </select>
-
-        <div id="container" class="svg-container svg-container-line-chart"></div>
-        <div id="my_legend"></div>
-
-        <form id="form" class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active">
-                <input type="radio" name="controlHeatmapType" value="MRR" checked>Option 1<br>
-            </label>
-            <label class="btn btn-secondary">
-                <input type="radio" name="controlHeatmapType" value="LYL">Option 2<br>
-            </label>
-        </form>
+        <div class="py-5">
+            <label class="pe-3" for="graphContent">Y-Axis Options </label>
+            <select class="p-1 rounded-2" name="graphContent" id="graphContent">
+                <option value="cases">New cases share(Top 10)</option>
+                <option value="vaccinations">Vaccinations</option>
+            </select>
+            <label class="pe-3 ps-5" for="veiwAll">View Options </label>
+            <select class="p-1 rounded-2" name="veiwAll" id="viewAll">
+                <option value="1">Top 5</option>
+                <option value="2">Top 10</option>
+                <option value="3">All Countries</option>
+            </select>
+        </div>
+        <div id="container" class="svg-container"></div>
 
     </div>
 
@@ -76,7 +74,7 @@
     <script src="../js/line-chart.js"></script>
     <script>
         const width = 700;
-        const height = 350;
+        const height = 600;
         const margin = 5; //margin: { top: 50, bottom: 50, left: 50, right: 50 };
         const padding = 5;
         const adj = 50;
@@ -88,7 +86,13 @@
                 d3.select("lines.path").remove();
                 updateData(newData);
             });
-
+        d3.select('#viewAll')
+            .on('change', function () {
+                var newData = d3.select(this).node().value;
+                console.log(newData)
+                d3.select("lines.path").remove();
+                updateData(newData);
+            });
 
 
         updateData("cases")
@@ -208,6 +212,7 @@
                     .attr("dy", ".75em")
                     .attr("y", 6)
                     .style("text-anchor", "end")
+                    .style('font-size', "2em")
                     .text("new cases/population(%)");
 
                 //----------------------------LINES-----------------------------//

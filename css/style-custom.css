@@ -88,14 +88,14 @@
 /* ticks */
 .axis line {
     stroke: #706f6f;
-    stroke-width: 0.5;
+    stroke-width: 1;
     shape-rendering: crispEdges;
 }
 
 /* axis contour */
 .axis path {
     stroke: #706f6f;
-    stroke-width: 0.7;
+    stroke-width: 1;
     shape-rendering: crispEdges;
 }
 
@@ -103,7 +103,7 @@
 .axis text {
     fill: #f5f5f5;
     font-family: Georgia;
-    font-size: 120%;
+    font-size: 1.5em;
 }
 
 /* LINE CHART */
@@ -120,29 +120,6 @@
     stroke-width: 10;
 }
 
-path.line-0 {
-    fill: none;
-    stroke: #FF1D33;
-}
-
-path.line-1 {
-    fill: none;
-    stroke: #2b2929;
-    stroke-dasharray: 2;
-}
-
-path.line-2 {
-    fill: none;
-    stroke: #9c9c9c;
-    stroke-dasharray: 6;
-}
-
-.series_label {
-    fill: #e7e4e4;
-    text-shadow: rgb(38, 38, 35) 1px 0 10px;
-    font-family: Georgia;
-    font-size: 80%;
-}
 
 /* TOOLTIP */
 .tooltip {
@@ -161,5 +138,5 @@ path.line-2 {
 .series_label {
     fill: #e7e4e4;
     font-family: Georgia;
-    font-size: 80%;
+    font-size: 1em;
 }
